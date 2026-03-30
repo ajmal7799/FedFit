@@ -1,0 +1,117 @@
+/* Base structural stuff */
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto; /* Enable scroll and reveal sequence below */
+    overflow-x: hidden;
+    position: relative;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+}
+
+/* Loader Styles */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black; /* Changed from background image to solid black as requested */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease-in-out, visibility 1s ease;
+}
+
+.loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#hero-canvas {
+    max-width: 350px; /* Reduced significantly to emulate a 'logo' size */
+    max-height: 200px;
+    object-fit: contain;
+}
+
+/* Main Home Page container */
+.main-content {
+    position: relative; /* Remove absolute to allow natural flow and scrolling */
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    opacity: 1; /* Changed to visible by default */
+    visibility: visible;
+    z-index: 1;
+}
+
+/* Header Styles */
+.home-header {
+    width: 100%;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent; /* No more black bar! */
+    z-index: 50;
+    position: fixed; /* Stick to top during scroll */
+    top: 0;
+    left: 0;
+    border-bottom: none; 
+}
+
+.nav-logo {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.nav-logo .red-text {
+    color: #e50914; /* Brand Red */
+}
+
+.top-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.top-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.top-nav a:hover {
+    color: #e50914;
+}
+
+/* Hero & Home Content Area */
+.home-body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: black; /* Changed from background image to solid black as requested */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(3,3,3,0.5) 0%, rgba(3,3,3,0.9) 100%);
+    z-index: 2;
+}
+
+
