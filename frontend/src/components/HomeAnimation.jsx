@@ -185,11 +185,8 @@ const HomeAnimation = ({ onNavigate }) => {
                                border-b border-white/[0.06] flex-shrink-0"
                 >
                     {/* Logo */}
-                    <div className="text-[#ffffff]
-                                    text-[1.4rem] sm:text-[1.6rem] md:text-[1.9rem]
-                                    tracking-[0.1em] uppercase leading-none font-black
-                                    drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]">
-                        <span className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.4)]">FED</span>FIT
+                    <div className="flex items-center">
+                        <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-14 w-auto object-contain cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
                     </div>
 
                     {/* Desktop Nav */}
@@ -267,8 +264,8 @@ const HomeAnimation = ({ onNavigate }) => {
                                 transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                                 className="fixed inset-y-0 left-0 w-4/5 max-w-xs bg-[#0d0d0d] border-r border-white/10 z-[101] md:hidden p-8 flex flex-col"
                             >
-                                <div className="mb-12 text-[#ffffff] text-2xl tracking-[0.1em] uppercase leading-none font-black pt-4">
-                                    <span className="text-red-500">FED</span>FIT
+                                <div className="mb-12 pt-4">
+                                    <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-16 w-auto object-contain" />
                                 </div>
                                 
                                 <nav className="flex flex-col gap-5 overflow-y-auto max-h-[60vh] py-2">
