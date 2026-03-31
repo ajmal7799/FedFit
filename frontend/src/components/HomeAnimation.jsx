@@ -362,7 +362,7 @@ const HomeAnimation = ({ onNavigate }) => {
                         transition={{ duration: 0.9, delay: 0.4, ease: 'easeOut' }}
                     >
                         <div className="md:hidden absolute top-0 inset-x-0 h-px bg-white/[0.04]" />
-                        <p className="text-red-500 font-semibold tracking-[0.28em] uppercase m-0 text-[0.6rem] sm:text-[0.65rem] md:text-[0.7rem]">Est. 2020</p>
+                        <p className="text-red-500 font-semibold tracking-[0.28em] uppercase m-0 text-[0.6rem] sm:text-[0.65rem] md:text-[0.7rem]">Est. 2026</p>
                         <h1 className="text-[#f0f0f0] uppercase leading-[0.9] tracking-wide m-0 font-black text-[2rem] sm:text-[2.6rem] md:text-[clamp(3.5rem,5.5vw,5.5rem)] drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
                             Shape<br />Your<br /><span className="text-red-500 drop-shadow-[0_0_16px_rgba(239,68,68,0.35)]">Confidence</span>
                         </h1>
@@ -607,8 +607,8 @@ const HomeAnimation = ({ onNavigate }) => {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-8 mb-20">
                         {/* Brand Column */}
                         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                            <div className="text-white text-3xl font-black tracking-tight mb-6">
-                                <span className="text-red-600">FED</span>FIT
+                            <div className="mb-6">
+                                <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-28 w-auto object-contain" />
                             </div>
                             <p className="text-white/40 text-sm leading-relaxed max-w-xs font-light tracking-wide mb-8">
                                 Elite performance coaching and high-end fitness solutions for those who refuse to settle. Join the revolution.

@@ -9,15 +9,7 @@ const certifications = [
     { label: '3+ Years Experience', icon: '🔥' },
 ];
 
-const fedFitServices = [
-    { title: 'Personal Training', desc: 'One-on-one coaching tailored to your goals, fitness level, and lifestyle.' },
-    { title: 'Diet & Nutrition Plans', desc: 'Scientifically structured meal plans designed to fuel performance and accelerate results.' },
-    { title: 'Custom Workout Plans', desc: 'Goal-specific exercise programs for fat loss, muscle gain, endurance, or overall wellness.' },
-    { title: 'Exercise Library', desc: 'A comprehensive database of exercises with precise form guidance and coaching cues.' },
-    { title: 'FedFit Quick Aid', desc: 'Essential emergency fitness protocols and rapid-recovery guides available at your fingertips.' },
-    { title: 'FedFit Academy', desc: '24-chapter scientific curriculum covering fitness science, physiology, nutrition, and performance.' },
-    { title: "Beginner's Guide", desc: 'A structured, beginner-friendly foundation to help newcomers build lasting fitness habits with confidence.' },
-];
+
 
 const AboutUs = ({ onBack }) => {
     return (
@@ -149,35 +141,93 @@ const AboutUs = ({ onBack }) => {
                 {/* ═══════════════════════════════
                     FEDFIT BRAND SECTION
                 ═══════════════════════════════ */}
+                {/* ═══════════════════════════════
+                    FEDFIT BRAND SECTION
+                ═══════════════════════════════ */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-28"
+                    className="mb-28 max-w-4xl mx-auto"
                 >
                     <p className="text-red-600 text-[0.6rem] font-black uppercase tracking-[0.5em] mb-2 text-center">The Platform</p>
-                    <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-center mb-6">
+                    <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-center mb-16">
                         What is <span className="text-red-600">FedFit?</span>
                     </h3>
-                    <p className="text-white/50 text-sm text-center max-w-2xl mx-auto leading-relaxed mb-16">
-                        FedFit is a premier fitness ecosystem built to transform the way people engage with health, training, and performance science. Here's everything we offer:
-                    </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {fedFitServices.map((service, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
+                    <div className="space-y-16">
+                        {/* Mission Paragraphs */}
+                        <div className="grid grid-cols-1 gap-8 text-center md:text-left">
+                            <motion.p
+                                initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: i * 0.07 }}
-                                className="group p-8 bg-white/[0.02] border border-white/5 rounded-[2rem] hover:bg-white/[0.04] hover:border-red-600/30 transition-all duration-400"
+                                className="text-white/80 text-xl md:text-2xl font-medium leading-relaxed"
                             >
-                                <div className="w-1.5 h-8 bg-red-600 rounded-full mb-5 group-hover:h-12 transition-all duration-300" />
-                                <h4 className="text-white font-black text-base uppercase tracking-tight mb-3">{service.title}</h4>
-                                <p className="text-white/45 text-sm leading-relaxed">{service.desc}</p>
+                                FedFit is a modern fitness brand built with one mission — to help individuals shape their confidence through powerful training, smart nutrition, and a disciplined lifestyle.
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 }}
+                                className="text-white/50 text-base md:text-lg leading-relaxed"
+                            >
+                                Founded by an International Certified Fitness Trainer, FedFit delivers result-driven workout programs, personalized diet plans, and high-quality online coaching designed for real, sustainable transformation. Whether you’re just starting your fitness journey or aiming to reach peak performance, FedFit provides the structure, guidance, and motivation you need.
+                            </motion.p>
+                        </div>
+
+                        {/* Apparels Section */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.98 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="relative p-10 md:p-14 bg-white/[0.02] border border-white/5 rounded-[3rem] overflow-hidden group"
+                        >
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 blur-[100px] rounded-full group-hover:bg-red-600/10 transition-colors duration-700" />
+                            <div className="relative z-10">
+                                <h4 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-6">
+                                    But FedFit is <span className="text-red-600">more than just coaching.</span>
+                                </h4>
+                                <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
+                                    We are expanding into <span className="text-white font-bold">FedFit Apparels Soon</span> — a fitness lifestyle clothing line created for those who live with strength, confidence, and purpose. Our apparel is designed to represent the mindset of champions — inside and outside the gym.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Identity Section */}
+                        <div className="text-center space-y-4 pt-8">
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                className="text-white/40 text-lg md:text-xl italic"
+                            >
+                                At FedFit, we don’t just build bodies.
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 }}
+                                className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-red-600"
+                            >
+                                We build confidence, discipline, and identity.
+                            </motion.p>
+
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3 }}
+                                className="flex flex-col items-center mt-12"
+                            >
+                                <div className="w-16 h-[1px] bg-red-600/30 mb-6" />
+                                <p className="text-white/30 text-[0.65rem] md:text-[0.75rem] uppercase tracking-[0.4em] font-black font-['Outfit']">
+                                    — Personal Coach: <span className="text-white/60 font-black">Fahad N P</span>
+                                </p>
                             </motion.div>
-                        ))}
+                        </div>
                     </div>
                 </motion.div>
 

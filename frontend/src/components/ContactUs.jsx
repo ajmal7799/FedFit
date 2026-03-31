@@ -143,7 +143,7 @@ const ContactUs = ({ onBack }) => {
                     transition={{ delay: 0.5 }}
                     className="mt-16 text-center opacity-20 hover:opacity-40 transition-opacity cursor-default"
                 >
-                    <p className="text-[0.6rem] font-black uppercase tracking-[0.5em]">Approved Elite Global Communication</p>
+                    {/* <p className="text-[0.6rem] font-black uppercase tracking-[0.5em]">Approved Elite Global Communication</p> */}
                 </motion.div>
             </main>
 
