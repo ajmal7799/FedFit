@@ -62,80 +62,77 @@ const HomeAnimation = ({ onNavigate }) => {
         let animationFrameId = null;
         let isAnimating = true;
 
-        const preloadImages = () => {
-            return new Promise((resolve, reject) => {
-                for (let i = 0; i < frameCount; i++) {
-                    const img = new Image();
-                    img.onload = () => {
-                        loadedCount++;
-                        if (loadedCount === frameCount) resolve(images);
-                    };
-                    img.onerror = () => {
-                        console.error(`Failed to load frame ${i + 1}`);
-                        reject(new Error(`Failed to load frame ${i + 1}`));
-                    };
-                    img.src = currentFramePath(i);
-                    images.push(img);
-                }
-            });
-        };
-
-        const startAnimation = async () => {
-            try {
-                // Preloading with a timeout to prevent hanging
-                const loadedImages = await Promise.race([
-                    preloadImages(),
-                    new Promise((_, reject) => setTimeout(() => reject(new Error('Loading timeout')), 6000))
-                ]);
-                
-                if (!loadedImages || !loadedImages[0]) { setError('No images loaded'); return; }
-
-                const firstImg = loadedImages[0];
+        const startAnimationLoop = (loadedImages) => {
+            if (!isAnimating) return;
+            
+            const firstImg = loadedImages[0];
+            if (firstImg) {
                 canvas.width = firstImg.width;
                 canvas.height = firstImg.height;
-
-                setIsLoaded(true);
-                setError(null);
-
-                const updateFrame = (timestamp) => {
-                    if (!isAnimating) return;
-                    if (!lastTime) lastTime = timestamp;
-                    const deltaTime = timestamp - lastTime;
-
-                    if (deltaTime >= frameInterval) {
-                        const frameToDraw = loadedImages[currentFrameIndex];
-                        if (frameToDraw && frameToDraw.complete) {
-                            ctx.clearRect(0, 0, canvas.width, canvas.height);
-                            ctx.drawImage(frameToDraw, 0, 0);
-                            currentFrameIndex = (currentFrameIndex + 1) % frameCount;
-                            lastTime = timestamp - (deltaTime % frameInterval);
-                        }
-                    }
-                    animationFrameId = requestAnimationFrame(updateFrame);
-                };
-
-                setTimeout(() => {
-                    animationFrameId = requestAnimationFrame(updateFrame);
-                }, 800);
-
-            } catch (err) {
-                console.error(err);
-                if (err.message === 'Loading timeout') {
-                    // Fallback: start animation anyway if some frames are loaded
-                    setIsLoaded(true);
-                } else {
-                    setError(err.message || 'Failed to load animation');
-                }
             }
+
+            const updateFrame = (timestamp) => {
+                if (!isAnimating) return;
+                if (!lastTime) lastTime = timestamp;
+                const deltaTime = timestamp - lastTime;
+
+                if (deltaTime >= frameInterval) {
+                    // Only draw if frame exists and is loaded
+                    const frameToDraw = loadedImages[currentFrameIndex];
+                    if (frameToDraw && frameToDraw.complete && frameToDraw.width > 0) {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        ctx.drawImage(frameToDraw, 0, 0);
+                        currentFrameIndex = (currentFrameIndex + 1) % frameCount;
+                        lastTime = timestamp - (deltaTime % frameInterval);
+                    } else {
+                        // Skip or loop back if missing a frame
+                        currentFrameIndex = (currentFrameIndex + 1) % frameCount;
+                    }
+                }
+                animationFrameId = requestAnimationFrame(updateFrame);
+            };
+
+            animationFrameId = requestAnimationFrame(updateFrame);
         };
 
-        startAnimation();
+        const loadAndStart = async () => {
+            // Initiate all loads immediately
+            for (let i = 0; i < frameCount; i++) {
+                const img = new Image();
+                img.onload = () => {
+                    loadedCount++;
+                    // Start loop as soon as the first frame is ready
+                    if (i === 0) {
+                        setIsLoaded(true);
+                        startAnimationLoop(images);
+                    }
+                };
+                img.onerror = () => {
+                    console.warn(`Frame ${i} failed to load`);
+                    // If frame 0 fails, we have a problem, but we'll try to find any frame
+                    if (i === 0) setError('Initial frame failed');
+                };
+                img.src = currentFramePath(i);
+                images.push(img);
+            }
+
+            // Fallback: if after 4 seconds nothing started, check if we have ANY frame
+            setTimeout(() => {
+                if (!isLoaded && images[0]) {
+                    setIsLoaded(true);
+                    startAnimationLoop(images);
+                }
+            }, 4000);
+        };
+
+        loadAndStart();
 
         return () => {
             isAnimating = false;
             if (animationFrameId) cancelAnimationFrame(animationFrameId);
         };
     }, []);
+
 
     const navItems = [
         'Home', 
@@ -214,8 +211,14 @@ const HomeAnimation = ({ onNavigate }) => {
                                         e.preventDefault(); onNavigate('about-us');
                                     } else if (item === 'Fedfit apparels') {
                                         e.preventDefault(); onNavigate('apparels');
+                                    } else if (item === 'Exercise library & Nutrition guide') {
+                                        e.preventDefault(); onNavigate('exercise-library');
+                                    } else if (item === 'Fedfit LifeCare') {
+                                        e.preventDefault(); onNavigate('lifecare');
                                     }
                                 }}
+
+
                                 className="relative text-white/60 hover:text-white
                                            text-[0.65rem] lg:text-[0.7rem]
                                            font-semibold tracking-[0.1em] uppercase no-underline
@@ -290,8 +293,14 @@ const HomeAnimation = ({ onNavigate }) => {
                                                     e.preventDefault(); onNavigate('about-us');
                                                 } else if (item === 'Fedfit apparels') {
                                                     e.preventDefault(); onNavigate('apparels');
+                                                } else if (item === 'Exercise library & Nutrition guide') {
+                                                    e.preventDefault(); onNavigate('exercise-library');
+                                                } else if (item === 'Fedfit LifeCare') {
+                                                    e.preventDefault(); onNavigate('lifecare');
                                                 }
                                             }}
+
+
                                             className="text-white/60 hover:text-white text-lg font-black uppercase tracking-widest no-underline transition-colors"
                                         >
                                             {item}

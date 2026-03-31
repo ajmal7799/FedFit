@@ -8,6 +8,10 @@ import QuickAid from './components/QuickAid';
 import ContactUs from './components/ContactUs';
 import AboutUs from './components/AboutUs';
 import Apparels from './components/Apparels';
+import ExerciseLibrary from './components/ExerciseLibrary';
+import LifeCare from './components/LifeCare';
+
+
 
 function App() {
   const [phase, setPhase] = useState('loader');
@@ -45,7 +49,17 @@ function App() {
       {phase === 'apparels' && (
         <Apparels onBack={() => setPhase('home')} />
       )}
+      
+      {phase === 'exercise-library' && (
+        <ExerciseLibrary onBack={() => setPhase('home')} />
+      )}
+      
+      {phase === 'lifecare' && (
+        <LifeCare onBack={() => setPhase('home')} />
+      )}
     </div>
+
+
   );
 }
 
