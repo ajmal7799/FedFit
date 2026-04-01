@@ -15,8 +15,10 @@ const HomeAnimation = ({ onNavigate }) => {
         weight: '',
         gender: '',
         allergies: '',
+        allergyDetails: '',
         injuries: '',
         otherInjuries: '',
+        lifeDisease: '',
         muscleFocus: '',
         customMuscleFocus: ''
     });
@@ -42,8 +44,10 @@ const handleFormChange = (e) => {
         `*Gender:* ${formData.gender}%0A` +
         (selectedProgram?.title.toLowerCase().includes('workout') ? `*Muscle Focus:* ${formData.muscleFocus === 'Customise' ? formData.customMuscleFocus : formData.muscleFocus}%0A` : '') +
         (selectedProgram?.title.toLowerCase().includes('diet') 
-            ? `*Allergies:* ${formData.allergies}`
-            : `*Injuries:* ${formData.hasInjuries ? 'Yes' : 'No'}`);
+            ? `*Allergies:* ${formData.allergies === 'Yes' ? formData.allergyDetails || 'Yes (Not specified)' : 'No'}`
+            : (selectedProgram?.title === 'Personal Coaching'
+                ? `*Injuries/Health Issues:* ${formData.injuries === 'Other' ? formData.otherInjuries : (formData.injuries || 'None')}%0A*Lifestyle Disease:* ${formData.lifeDisease || 'None'}`
+                : `*Injuries:* ${formData.hasInjuries ? 'Yes' : 'No'}`));
     
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
     setModalOpen(false);
@@ -56,6 +60,10 @@ const handleFormChange = (e) => {
         muscleFocus: '',
         customMuscleFocus: '',
         allergies: '',
+        allergyDetails: '',
+        injuries: '',
+        otherInjuries: '',
+        lifeDisease: '',
         hasInjuries: false,
     });
 };
@@ -891,33 +899,76 @@ const handleFormChange = (e) => {
                                                 </label>
                                             ))}
                                         </div>
+                                        {formData.allergies === 'Yes' && (
+                                            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="pt-1">
+                                                <input required name="allergyDetails" value={formData.allergyDetails || ''} onChange={handleFormChange} placeholder="Please specify your allergies..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                                            </motion.div>
+                                        )}
+                                    </div>
+                                ) : selectedProgram?.title === 'Personal Coaching' ? (
+                                    <div className="space-y-2 pt-2">
+                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Injuries / Health Issues</label>
+                                        <div className="grid grid-cols-2 gap-2 mt-2">
+                                            {['Knee Pain', 'Back Pain', 'Shoulder Injury', 'None'].map(injury => (
+                                                <label key={injury} className="flex items-center gap-2 group cursor-pointer">
+                                                    <input required type="radio" name="injuries" value={injury} onChange={handleFormChange} className="hidden" />
+                                                    <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === injury ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                        {injury}
+                                                    </div>
+                                                </label>
+                                            ))}
+                                            <label className="flex items-center gap-2 group cursor-pointer col-span-2">
+                                                <input type="radio" name="injuries" value="Other" onChange={handleFormChange} className="hidden" />
+                                                <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === 'Other' ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                    Other Injuries
+                                                </div>
+                                            </label>
+                                        </div>
+                                        {formData.injuries === 'Other' && (
+                                            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="pt-1">
+                                                <input name="otherInjuries" value={formData.otherInjuries || ''} onChange={handleFormChange} placeholder="Please specify your injury..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                                            </motion.div>
+                                        )}
+                                        <div className="space-y-2 pt-2">
+                                            <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Any Lifestyle Disease?</label>
+                                            <div className="grid grid-cols-2 gap-2 mt-2">
+                                                {['Yes', 'No'].map(option => (
+                                                    <label key={`disease-${option}`} className="flex items-center gap-2 group cursor-pointer">
+                                                        <input required type="radio" name="lifeDisease" value={option} onChange={handleFormChange} className="hidden" />
+                                                        <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.lifeDisease === option ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                            {option}
+                                                        </div>
+                                                    </label>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </div>
                                 ) : (
-                            <div className="space-y-2">
-  <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">
-    Injuries / Health Issues
-  </label>
-  <label className="flex items-center gap-3 group cursor-pointer mt-2">
-    <input
-      type="checkbox"
-      name="hasInjuries"
-      onChange={handleFormChange}
-      className="hidden"
-    />
-    <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all flex-shrink-0 ${
-      formData.hasInjuries
-        ? 'bg-red-600 border-red-600'
-        : 'bg-white/5 border-white/10 group-hover:bg-white/10'
-    }`}>
-      {formData.hasInjuries && (
-        <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-      )}
-    </div>
-    <span className="text-white/50 text-xs font-medium">I have injuries or health issues</span>
-  </label>
-</div>
+                                    <div className="space-y-2">
+                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">
+                                            Injuries / Health Issues
+                                        </label>
+                                        <label className="flex items-center gap-3 group cursor-pointer mt-2">
+                                            <input
+                                                type="checkbox"
+                                                name="hasInjuries"
+                                                onChange={handleFormChange}
+                                                className="hidden"
+                                            />
+                                            <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all flex-shrink-0 ${
+                                                formData.hasInjuries
+                                                    ? 'bg-red-600 border-red-600'
+                                                    : 'bg-white/5 border-white/10 group-hover:bg-white/10'
+                                            }`}>
+                                                {formData.hasInjuries && (
+                                                    <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                )}
+                                            </div>
+                                            <span className="text-white/50 text-xs font-medium">I have injuries or health issues</span>
+                                        </label>
+                                    </div>
                                 )}
 
                                 <motion.button 
