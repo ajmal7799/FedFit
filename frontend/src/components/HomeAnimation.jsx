@@ -817,7 +817,7 @@ const handleFormChange = (e) => {
                             initial={{ scale: 0.9, y: 20 }}
                             animate={{ scale: 1, y: 0 }}
                             exit={{ scale: 0.9, y: 20 }}
-                            className="relative w-full max-w-lg bg-[#111] border border-white/10 rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(239,68,68,0.2)] p-8 sm:p-10 my-8"
+                            className="relative w-full max-w-lg bg-[#111] border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(239,68,68,0.2)] p-6 sm:p-10 my-4 sm:my-8"
                         >
                             {/* Close Button */}
                             <button 
@@ -827,25 +827,25 @@ const handleFormChange = (e) => {
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
                             </button>
 
-                            <div className="mb-8">
-                                <h2 className="text-red-600 text-xs font-black tracking-[0.4em] uppercase mb-2">Program Inquiry</h2>
-                                <h3 className="text-white text-3xl font-black uppercase tracking-tight">{selectedProgram?.title}</h3>
+                            <div className="mb-6 sm:mb-8">
+                                <h2 className="text-red-600 text-[0.6rem] sm:text-xs font-black tracking-[0.4em] uppercase mb-1 sm:mb-2">Program Inquiry</h2>
+                                <h3 className="text-white text-2xl sm:text-3xl font-black uppercase tracking-tight">{selectedProgram?.title}</h3>
                             </div>
 
-                            <form onSubmit={handleSubmit} className="space-y-5">
-                                <div className="space-y-2">
-                                    <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Full Name</label>
-                                    <input required name="name" onChange={handleFormChange} placeholder="Enter your name" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-5">
+                                <div className="space-y-1 sm:space-y-2">
+                                    <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">Full Name</label>
+                                    <input required name="name" onChange={handleFormChange} placeholder="Enter your name" className="w-full bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white text-[0.8rem] sm:text-sm focus:border-red-600/50 outline-none transition-colors" />
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Age</label>
-                                        <input required name="age" type="number" onChange={handleFormChange} placeholder="Years" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                                    <div className="space-y-1 sm:space-y-2">
+                                        <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">Age</label>
+                                        <input required name="age" type="number" onChange={handleFormChange} placeholder="Years" className="w-full bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white text-[0.8rem] sm:text-sm focus:border-red-600/50 outline-none transition-colors" />
                                     </div>
-                                    <div className="space-y-2">
-                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Gender</label>
-                                        <select required name="gender" onChange={handleFormChange} className="w-full bg-[#1c1c1c] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors appearance-none">
+                                    <div className="space-y-1 sm:space-y-2">
+                                        <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">Gender</label>
+                                        <select required name="gender" onChange={handleFormChange} className="w-full bg-[#1c1c1c] border border-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white text-[0.8rem] sm:text-sm focus:border-red-600/50 outline-none transition-colors appearance-none">
                                             <option value="">Select</option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
@@ -853,52 +853,52 @@ const handleFormChange = (e) => {
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Height (cm)</label>
-                                        <input required name="height" type="number" onChange={handleFormChange} placeholder="cm" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                                    <div className="space-y-1 sm:space-y-2">
+                                        <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">Height (cm)</label>
+                                        <input required name="height" type="number" onChange={handleFormChange} placeholder="cm" className="w-full bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white text-[0.8rem] sm:text-sm focus:border-red-600/50 outline-none transition-colors" />
                                     </div>
-                                    <div className="space-y-2">
-                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Weight (kg)</label>
-                                        <input required name="weight" type="number" onChange={handleFormChange} placeholder="kg" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                                    <div className="space-y-1 sm:space-y-2">
+                                        <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">Weight (kg)</label>
+                                        <input required name="weight" type="number" onChange={handleFormChange} placeholder="kg" className="w-full bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white text-[0.8rem] sm:text-sm focus:border-red-600/50 outline-none transition-colors" />
                                     </div>
                                 </div>
 
                                 {selectedProgram?.title.toLowerCase().includes('workout') && (
-                                    <div className="space-y-2 pt-2">
-                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Which muscle group are we targeting?</label>
-                                        <div className="grid grid-cols-2 gap-2 mt-2">
+                                    <div className="space-y-1 sm:space-y-2 pt-1 sm:pt-2">
+                                        <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">Which muscle group are we targeting?</label>
+                                        <div className="grid grid-cols-2 gap-2 mt-1 sm:mt-2">
                                             {commonMuscleFocus.map(focus => (
                                                 <label key={focus} className="flex items-center gap-2 group cursor-pointer">
                                                     <input required type="radio" name="muscleFocus" value={focus} onChange={handleFormChange} className="hidden" />
-                                                    <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.muscleFocus === focus ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                    <div className={`px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-white/10 text-[0.6rem] sm:text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.muscleFocus === focus ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
                                                         {focus}
                                                     </div>
                                                 </label>
                                             ))}
                                             <label className="flex items-center gap-2 group cursor-pointer col-span-2">
                                                 <input type="radio" name="muscleFocus" value="Customise" onChange={handleFormChange} className="hidden" />
-                                                <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.muscleFocus === 'Customise' ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                <div className={`px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-white/10 text-[0.6rem] sm:text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.muscleFocus === 'Customise' ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
                                                     Customise
                                                 </div>
                                             </label>
                                         </div>
                                         {formData.muscleFocus === 'Customise' && (
                                             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="pt-1">
-                                                <input name="customMuscleFocus" onChange={handleFormChange} placeholder="Enter your focusing muscles..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                                                <input name="customMuscleFocus" onChange={handleFormChange} placeholder="Enter your focusing muscles..." className="w-full bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white text-[0.8rem] sm:text-sm focus:border-red-600/50 outline-none transition-colors" />
                                             </motion.div>
                                         )}
                                     </div>
                                 )}
 
                                 {selectedProgram?.title.toLowerCase().includes('diet') ? (
-                                    <div className="space-y-2">
-                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Do you have any allergies?</label>
-                                        <div className="grid grid-cols-2 gap-2 mt-2">
+                                    <div className="space-y-1 sm:space-y-2 pt-1 sm:pt-2">
+                                        <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">Do you have any allergies?</label>
+                                        <div className="grid grid-cols-2 gap-2 mt-1 sm:mt-2">
                                             {['Yes', 'No'].map(option => (
                                                 <label key={option} className="flex items-center gap-2 group cursor-pointer">
                                                     <input required type="radio" name="allergies" value={option} onChange={handleFormChange} className="hidden" />
-                                                    <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.allergies === option ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                    <div className={`px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-white/10 text-[0.6rem] sm:text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.allergies === option ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
                                                         {option}
                                                     </div>
                                                 </label>
@@ -906,41 +906,41 @@ const handleFormChange = (e) => {
                                         </div>
                                         {formData.allergies === 'Yes' && (
                                             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="pt-1">
-                                                <input required name="allergyDetails" value={formData.allergyDetails || ''} onChange={handleFormChange} placeholder="Please specify your allergies..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                                                <input required name="allergyDetails" value={formData.allergyDetails || ''} onChange={handleFormChange} placeholder="Please specify your allergies..." className="w-full bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white text-[0.8rem] sm:text-sm focus:border-red-600/50 outline-none transition-colors" />
                                             </motion.div>
                                         )}
                                     </div>
                                 ) : selectedProgram?.title === 'Personal Coaching' ? (
-                                    <div className="space-y-2 pt-2">
-                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Injuries / Health Issues</label>
-                                        <div className="grid grid-cols-2 gap-2 mt-2">
+                                    <div className="space-y-1 sm:space-y-2 pt-1 sm:pt-2">
+                                        <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">Injuries / Health Issues</label>
+                                        <div className="grid grid-cols-2 gap-2 mt-1 sm:mt-2">
                                             {['Knee Pain', 'Back Pain', 'Shoulder Injury', 'None'].map(injury => (
                                                 <label key={injury} className="flex items-center gap-2 group cursor-pointer">
                                                     <input required type="radio" name="injuries" value={injury} onChange={handleFormChange} className="hidden" />
-                                                    <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === injury ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                    <div className={`px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-white/10 text-[0.6rem] sm:text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === injury ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
                                                         {injury}
                                                     </div>
                                                 </label>
                                             ))}
                                             <label className="flex items-center gap-2 group cursor-pointer col-span-2">
                                                 <input type="radio" name="injuries" value="Other" onChange={handleFormChange} className="hidden" />
-                                                <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === 'Other' ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                <div className={`px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-white/10 text-[0.6rem] sm:text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === 'Other' ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
                                                     Other Injuries
                                                 </div>
                                             </label>
                                         </div>
                                         {formData.injuries === 'Other' && (
                                             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="pt-1">
-                                                <input name="otherInjuries" value={formData.otherInjuries || ''} onChange={handleFormChange} placeholder="Please specify your injury..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                                                <input name="otherInjuries" value={formData.otherInjuries || ''} onChange={handleFormChange} placeholder="Please specify your injury..." className="w-full bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white text-[0.8rem] sm:text-sm focus:border-red-600/50 outline-none transition-colors" />
                                             </motion.div>
                                         )}
-                                        <div className="space-y-2 pt-2">
-                                            <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Any Lifestyle Disease?</label>
-                                            <div className="grid grid-cols-2 gap-2 mt-2">
+                                        <div className="space-y-1 sm:space-y-2 pt-1 sm:pt-2">
+                                            <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">Any Lifestyle Disease?</label>
+                                            <div className="grid grid-cols-2 gap-2 mt-1 sm:mt-2">
                                                 {['Yes', 'No'].map(option => (
                                                     <label key={`disease-${option}`} className="flex items-center gap-2 group cursor-pointer">
                                                         <input required type="radio" name="lifeDisease" value={option} onChange={handleFormChange} className="hidden" />
-                                                        <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.lifeDisease === option ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                        <div className={`px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-white/10 text-[0.6rem] sm:text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.lifeDisease === option ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
                                                             {option}
                                                         </div>
                                                     </label>
@@ -949,18 +949,18 @@ const handleFormChange = (e) => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="space-y-2">
-                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">
+                                    <div className="space-y-1 sm:space-y-2 pt-1 sm:pt-2">
+                                        <label className="text-white/40 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest pl-1">
                                             Injuries / Health Issues
                                         </label>
-                                        <label className="flex items-center gap-3 group cursor-pointer mt-2">
+                                        <label className="flex items-center gap-3 group cursor-pointer mt-1 sm:mt-2">
                                             <input
                                                 type="checkbox"
                                                 name="hasInjuries"
                                                 onChange={handleFormChange}
                                                 className="hidden"
                                             />
-                                            <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all flex-shrink-0 ${
+                                            <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-md border flex items-center justify-center transition-all flex-shrink-0 ${
                                                 formData.hasInjuries
                                                     ? 'bg-red-600 border-red-600'
                                                     : 'bg-white/5 border-white/10 group-hover:bg-white/10'
@@ -971,7 +971,7 @@ const handleFormChange = (e) => {
                                                     </svg>
                                                 )}
                                             </div>
-                                            <span className="text-white/50 text-xs font-medium">I have injuries or health issues</span>
+                                            <span className="text-white/50 text-[0.7rem] sm:text-xs font-medium">I have injuries or health issues</span>
                                         </label>
                                     </div>
                                 )}
@@ -979,7 +979,7 @@ const handleFormChange = (e) => {
                                 <motion.button 
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="w-full py-4 mt-4 bg-red-600 hover:bg-red-500 text-white font-black uppercase tracking-[0.2em] text-sm rounded-xl transition-all shadow-[0_0_30px_rgba(239,68,68,0.3)]"
+                                    className="w-full py-3 sm:py-4 mt-2 sm:mt-4 bg-red-600 hover:bg-red-500 text-white font-black uppercase tracking-[0.2em] text-xs sm:text-sm rounded-xl transition-all shadow-[0_0_30px_rgba(239,68,68,0.3)]"
                                 >
                                     SEND VIA WHATSAPP
                                 </motion.button>
