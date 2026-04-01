@@ -22,7 +22,7 @@ const HomeAnimation = ({ onNavigate }) => {
     });
 
     const commonInjuries = ['Knee Pain', 'Back Pain', 'Shoulder Injury', 'None'];
-    const commonMuscleFocus = ['Chest Focus', 'Upper Body Focus', 'Lower Body Focus', 'None'];
+    const commonMuscleFocus = ['Upper Body Focus', 'Lower Body Focus', 'None'];
 
 
 
@@ -843,7 +843,7 @@ const HomeAnimation = ({ onNavigate }) => {
 
                                 {selectedProgram?.title.toLowerCase().includes('workout') && (
                                     <div className="space-y-2 pt-2">
-                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Which muscle focusing?</label>
+                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Which muscle group are we targeting?</label>
                                         <div className="grid grid-cols-2 gap-2 mt-2">
                                             {commonMuscleFocus.map(focus => (
                                                 <label key={focus} className="flex items-center gap-2 group cursor-pointer">
