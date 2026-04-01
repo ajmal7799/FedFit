@@ -736,7 +736,7 @@ const handleFormChange = (e) => {
                         {/* Brand Column */}
                         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                             <div className="mb-6">
-                                <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-40 w-auto object-contain" />
+                                <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-[240px] w-auto object-contain" />
                             </div>
                             <p className="text-white/40 text-sm leading-relaxed max-w-xs font-light tracking-wide mb-8">
                                 Elite performance coaching and high-end fitness solutions for those who refuse to settle. Join the revolution.
@@ -788,12 +788,17 @@ const handleFormChange = (e) => {
                     </div>
 
                     {/* Bottom Bar */}
-                    <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div className="text-white/20 text-[0.6rem] tracking-[0.4em] uppercase">
-                            Designed for elite performance
+                    <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center md:items-end gap-6 text-center md:text-left">
+                        <div className="flex flex-col gap-2">
+                            <div className="text-white/80 text-[0.9rem] font-medium">
+                                &copy; 2026 FedFit. All rights reserved
+                            </div>
+                            <div className="text-white/50 text-[0.8rem] uppercase tracking-wide font-medium">
+                                BASED IN INDIA
+                            </div>
                         </div>
-                        <div className="text-white/20 text-[0.6rem] tracking-[0.4em] uppercase text-center md:text-right">
-                            &copy; 2026 FedFit. All Rights Reserved.
+                        <div className="text-white/20 text-[0.6rem] tracking-[0.4em] uppercase md:text-right">
+                            Designed for elite performance
                         </div>
                     </div>
                 </div>
