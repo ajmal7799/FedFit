@@ -794,7 +794,7 @@ const handleFormChange = (e) => {
                                 &copy; 2026 FedFit. All rights reserved
                             </div>
                             <div className="text-white/50 text-[0.8rem] uppercase tracking-wide font-medium">
-                                BASED IN INDIA
+                                Founder and designer by Fahad
                             </div>
                         </div>
                         <div className="text-white/20 text-[0.6rem] tracking-[0.4em] uppercase md:text-right">
