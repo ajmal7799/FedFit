@@ -6,7 +6,7 @@ const certifications = [
     { label: 'NCVET Certification', icon: '📜' },
     { label: 'FSSA Certified Trainer', icon: '🏋️' },
     { label: 'CPR & AED Certified', icon: '❤️' },
-    { label: 'B.Tech Electronics', icon: '⚡' },
+    { label: 'B.Tech Electronics and Communication Engineering  ', icon: '⚡' },
     { label: '4+ Years Experience', icon: '🔥' },
 ];
 
@@ -105,7 +105,7 @@ const AboutUs = ({ onBack }) => {
                             Certified Personal Coach &nbsp;|&nbsp; Founder of FedFit &nbsp;|&nbsp; Electronics Engineer
                         </p>
                         <p className="text-white/65 text-sm leading-[1.9] mb-6">
-                            I am Fahad N P, a dedicated and results-driven fitness trainer with over 5 years of hands-on experience in transforming lives through structured training and smart nutrition strategies. With a strong passion for fitness and a deep understanding of the human body, I help individuals achieve their goals—whether it's fat loss, muscle gain, or overall health improvement.
+                            I am Fahad N P, a dedicated and results-driven fitness trainer with over 4 years of hands-on experience in transforming lives through structured training and smart nutrition strategies. With a strong passion for fitness and a deep understanding of the human body, I help individuals achieve their goals—whether it's fat loss, muscle gain, or overall health improvement.
                         </p>
                         <p className="text-white/65 text-sm leading-[1.9] mb-6">
                             I hold multiple recognized certifications, including EREPS, NCVET certification, and I am a Certified Personal Trainer by FSSA Council, ensuring professional and scientifically backed coaching methods. I am also certified in CPR &amp; AED, which allows me to prioritize client safety during every training session.
