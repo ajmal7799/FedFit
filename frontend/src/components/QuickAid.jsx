@@ -8,19 +8,19 @@ const QuickAid = ({ onBack }) => {
             id: 1,
             image: '/images/quickaid/file_000000001f0c720b8a40bd8d6284b175.png',
             title: 'Critical Nutrition Guide',
-            review: "FedFit Quick Aid's nutrition breakdown is a lifesaver. It made complex macro tracking so simple that I finally saw results in my first month."
+            review: "The Quick Aid guide is a lifesaver. It made complex emergency steps so simple to follow that I feel confident knowing exactly what to do in a crisis."
         },
         {
             id: 2,
             image: '/images/quickaid/file_00000000f854720b9e33c218957342a1.png',
             title: 'Performance Protocol',
-            review: "The technical depth in these 'Quick Aids' is astounding. It’s not just advice; it’s an elite system for maximizing every workout."
+            review: "This is the perfect guide for an emergency. It makes learning and remembering CPR extremely clear. I feel ready to help if needed."
         },
         {
             id: 3,
             image: '/images/quickaid/Gemini_Generated_Image_8dg5n68dg5n68dg5.png',
             title: 'Foundational Recovery',
-            review: "I never realized how much my recovery was holding me back. The data-driven quick aid was the missing piece to my performance puzzle."
+            review: "This quick-reference guide simplified everything for me. It broke down complex first aid procedures into clear, actionable steps that I could easily understand and follow."
         }
     ];
 
@@ -37,8 +37,13 @@ const QuickAid = ({ onBack }) => {
                     </svg>
                     Back to Home
                 </button>
-                <div className="text-xl font-black tracking-tight lowercase">
-                    <span className="text-red-600 uppercase">FedFit</span> Quick Aid
+                <div className="flex items-center gap-4">
+                    <img src="/images/logo/logo.jpeg" alt="FedFit Logo" className="w-8 h-8 rounded-full border border-red-600/30 shadow-[0_0_15px_rgba(239,68,68,0.2)]" />
+                    <div className="text-2xl font-black italic tracking-tighter uppercase flex items-center">
+                        <span className="text-white/50">FED</span>
+                        <span className="text-red-600">FIT</span>
+                        <span className="ml-3 text-[0.6rem] text-white/30 tracking-[0.3em] font-bold">— QUICK AID</span>
+                    </div>
                 </div>
                 <div className="w-24 hidden md:block" />
             </header>
@@ -56,9 +61,13 @@ const QuickAid = ({ onBack }) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-black uppercase tracking-tight"
+                        className="text-5xl md:text-7xl font-black uppercase tracking-tight flex flex-col items-center gap-2"
                     >
-                        FedFit <span className="text-red-600">Quick Aid</span>
+                        <div className="flex italic tracking-tighter">
+                            <span className="text-white/20">FED</span>
+                            <span className="text-red-600/40">FIT</span>
+                        </div>
+                        <div>QUICK <span className="text-red-600">AID</span></div>
                     </motion.h1>
                     <p className="mt-8 text-white/40 text-sm max-w-xl mx-auto font-light leading-relaxed tracking-wide">
                         Our specialized resources designed for immediate performance optimization. View our elite protocols and see what our community thinks.
@@ -125,8 +134,11 @@ const QuickAid = ({ onBack }) => {
             </main>
 
             <footer className="py-20 border-t border-white/[0.05] flex flex-col items-center bg-black">
-                <div className="text-white/20 text-[0.6rem] tracking-[0.5em] uppercase mb-4">FedFit Quick Aid</div>
-                <div className="text-white/10 text-[0.5rem] tracking-[0.3em] uppercase">&copy; 2024 FedFit. All Rights Reserved.</div>
+                <div className="text-xl font-black italic tracking-tighter uppercase mb-4 opacity-20">
+                    <span className="text-white">FED</span>
+                    <span className="text-white">FIT</span>
+                </div>
+                <div className="text-white/10 text-[0.5rem] tracking-[0.3em] uppercase">&copy; 2026 FedFit. All Rights Reserved.</div>
             </footer>
             {/* ── Zoom Modal ── */}
             <AnimatePresence>
@@ -162,7 +174,7 @@ const QuickAid = ({ onBack }) => {
                             />
                             <div className="mt-8 text-center">
                                 <h3 className="text-2xl font-black uppercase tracking-widest text-white">{zoomedImage.title}</h3>
-                                <p className="text-white/40 text-xs font-bold uppercase tracking-[0.4em] mt-2 italic px-4">Technical Resource Protocol — Approved 2024</p>
+                                <p className="text-white/40 text-xs font-bold uppercase tracking-[0.4em] mt-2 italic px-4">Technical Resource Protocol — Approved 2026</p>
                             </div>
                         </motion.div>
                     </motion.div>

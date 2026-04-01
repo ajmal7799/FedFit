@@ -20,12 +20,12 @@ const ExerciseLibrary = ({ onBack }) => {
     ];
 
     const dietImages = [
-        { id: 1, name: 'file_000000000bb4720bafa5745ab3c03623', label: 'Fueling Elite Performance' },
-        { id: 2, name: 'file_0000000068a8720bba80086069b2606c', label: 'Hypertrophic Nutrition' },
-        { id: 3, name: 'file_0000000097a0720bb8a3c29c50b04273', label: 'Optimal Micronutrients' },
-        { id: 4, name: 'file_00000000a6c4720bbfe683d661ae371d', label: 'Endurance Sustainability' },
-        { id: 5, name: 'file_00000000e07871fa84e0d9315b697206', label: 'Cinematic Cutting Protocol' },
-        { id: 6, name: 'file_00000000e69c720b8657ef4c20e590d5', label: 'Macro Precision Strategy' }
+        { id: 1, name: 'file_000000000bb4720bafa5745ab3c03623', label: ' Types of Fat in Foods' },
+        { id: 2, name: 'file_0000000068a8720bba80086069b2606c', label: 'Carbohydrate Foods' },
+        { id: 3, name: 'file_0000000097a0720bb8a3c29c50b04273', label: 'Protein Sources' },
+        { id: 4, name: 'file_00000000a6c4720bbfe683d661ae371d', label: 'Macronutrients vs Micronutrients' },
+        { id: 5, name: 'file_00000000e07871fa84e0d9315b697206', label: 'Foods to Eat vs Foods to Avoid' },
+        { id: 6, name: 'file_00000000e69c720b8657ef4c20e590d5', label: 'Complete Protein Sources' }
     ];
 
     const [activeTab, setActiveTab] = useState('exercise'); // 'exercise' or 'nutrition'

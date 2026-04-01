@@ -62,6 +62,16 @@ const ContactUs = ({ onBack }) => {
                     </svg>
                     Back
                 </button>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
+                    <div className="text-xl font-black italic tracking-tighter uppercase whitespace-nowrap flex items-center gap-4">
+                        <img src="/images/logo/logo.jpeg" alt="FedFit Logo" className="w-8 h-8 rounded-full border border-red-600/30 shadow-[0_0_15px_rgba(239,68,68,0.2)]" />
+                        <div className="flex items-center">
+                            <span className="text-white/50">FED</span>
+                            <span className="text-red-600">FIT</span>
+                            <span className="ml-3 text-[0.6rem] text-white/30 tracking-[0.3em] font-bold">— CONTACT</span>
+                        </div>
+                    </div>
+                </div>
                 <div className="w-24 hidden md:block" />
             </header>
 
@@ -72,8 +82,9 @@ const ContactUs = ({ onBack }) => {
                     className="text-center mb-16"
                 >
                     <p className="text-red-600 font-extrabold uppercase tracking-[0.4em] text-[0.6rem] mb-3">Connect with elite</p>
-                    <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tight">
-                        Contact <span className="text-red-600">Us</span>
+                    <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tight flex flex-col items-center gap-2 leading-none">
+                        <div className="text-white/10 text-2xl md:text-3xl italic font-light tracking-[0.2em] mb-4 font-light">FEDFIT</div>
+                        CONTACT <span className="text-red-600">US</span>
                     </h1>
                 </motion.div>
 
@@ -100,7 +111,7 @@ const ContactUs = ({ onBack }) => {
                         ))}
                     </div>
 
-                    {/* Right Column: Elite Socials Modal-style Box */}
+                    {/* Right Column: Elite Socials Box */}
                     <motion.div 
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -143,12 +154,22 @@ const ContactUs = ({ onBack }) => {
                     transition={{ delay: 0.5 }}
                     className="mt-16 text-center opacity-20 hover:opacity-40 transition-opacity cursor-default"
                 >
-                    {/* <p className="text-[0.6rem] font-black uppercase tracking-[0.5em]">Approved Elite Global Communication</p> */}
                 </motion.div>
             </main>
 
+            {/* Footer */}
+            <footer className="py-20 border-t border-white/[0.05] flex flex-col items-center bg-black relative z-20">
+                <div className="text-xl font-black italic tracking-tighter uppercase mb-4 opacity-20">
+                    <span className="text-white">FED</span>
+                    <span className="text-white">FIT</span>
+                </div>
+                <div className="text-white/10 text-[0.5rem] tracking-[0.3em] uppercase">
+                    &copy; 2026 FedFit. All Rights Reserved.
+                </div>
+            </footer>
+
             {/* Custom scrollbar and aesthetics */}
-            <style jsx>{`
+            <style jsx="true">{`
                 .truncate {
                     overflow: hidden;
                     text-overflow: ellipsis;

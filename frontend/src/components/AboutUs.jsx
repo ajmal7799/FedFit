@@ -5,8 +5,9 @@ const certifications = [
     { label: 'EREPS Certified', icon: '🎓' },
     { label: 'NCVET Certification', icon: '📜' },
     { label: 'FSSA Certified Trainer', icon: '🏋️' },
+    { label: 'CPR & AED Certified', icon: '❤️' },
     { label: 'B.Tech Electronics', icon: '⚡' },
-    { label: '3+ Years Experience', icon: '🔥' },
+    { label: '4+ Years Experience', icon: '🔥' },
 ];
 
 
@@ -31,8 +32,13 @@ const AboutUs = ({ onBack }) => {
                     </svg>
                     Back
                 </button>
-                <div className="text-base font-black tracking-tight uppercase">
-                    <span className="text-red-600">Fed</span>Fit <span className="text-white/30">— About</span>
+                <div className="flex items-center gap-4">
+                    <img src="/images/logo/logo.jpeg" alt="FedFit Logo" className="w-8 h-8 rounded-full border border-red-600/30 shadow-[0_0_15px_rgba(239,68,68,0.2)]" />
+                    <div className="text-xl font-black italic tracking-tighter uppercase whitespace-nowrap flex items-center">
+                        <span className="text-white/50">FED</span>
+                        <span className="text-red-600">FIT</span>
+                        <span className="ml-3 text-[0.6rem] text-white/30 tracking-[0.3em] font-bold">— ABOUT</span>
+                    </div>
                 </div>
                 <div className="w-20 hidden md:block" />
             </header>
@@ -51,9 +57,10 @@ const AboutUs = ({ onBack }) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.08 }}
-                    className="text-center text-5xl md:text-7xl font-black uppercase tracking-tight mb-24 leading-none"
+                    className="text-center text-5xl md:text-8xl font-black uppercase tracking-tight mb-24 leading-none flex flex-col items-center gap-2"
                 >
-                    About <span className="text-red-600">Us</span>
+                    <div className="text-white/10 text-2xl md:text-4xl italic font-light tracking-[0.2em] mb-4 font-light">FEDFIT</div>
+                    ABOUT <span className="text-red-600">US</span>
                 </motion.h1>
 
                 {/* ═══════════════════════════════
@@ -239,7 +246,7 @@ const AboutUs = ({ onBack }) => {
                     className="text-center border-t border-white/[0.04] pt-14"
                 >
                     <p className="text-white/20 text-[0.55rem] uppercase tracking-[0.6em] font-black">
-                        FedFit — Shaping Champions · Est. 2024
+                        FedFit — Shaping Champions · Est. 2026
                     </p>
                 </motion.div>
             </main>

@@ -78,7 +78,14 @@ const BeginnerGuide = ({ onBack }) => {
                     </svg>
                     Back to Home
                 </button>
-                <div className="text-xl font-black tracking-tight"><span className="text-red-600">FED</span>FIT</div>
+                <div className="flex items-center gap-4">
+                    <img src="/images/logo/logo.jpeg" alt="FedFit Logo" className="w-8 h-8 rounded-full border border-red-600/30 shadow-[0_0_15px_rgba(239,68,68,0.2)]" />
+                    <div className="text-2xl font-black italic tracking-tighter uppercase flex items-center">
+                        <span className="text-white/50">FED</span>
+                        <span className="text-red-600">FIT</span>
+                        <span className="ml-3 text-[0.6rem] text-white/30 tracking-[0.3em] font-bold">— BEGINNERS GUIDE</span>
+                    </div>
+                </div>
                 <div className="w-24 hidden md:block" /> { /* Spacer for balance */ }
             </header>
 
@@ -92,7 +99,8 @@ const BeginnerGuide = ({ onBack }) => {
                 >
                     <p className="text-red-600 font-black uppercase tracking-[0.4em] text-[0.75rem] mb-4">Foundation Module 01</p>
                     <h1 className="text-6xl sm:text-7xl md:text-8xl font-black uppercase tracking-tight leading-[0.85] mb-10">
-                        Beginners <br /><span className="text-white opacity-40">Guide</span>
+                        <span className="text-white/10 block mb-4 text-3xl md:text-4xl italic font-medium tracking-[0.2em] font-light">FEDFIT</span>
+                        BEGINNERS <br /><span className="text-red-600">GUIDE</span>
                     </h1>
                     <p className="text-white/60 text-lg sm:text-xl font-light leading-relaxed tracking-wide italic max-w-2xl border-l-2 border-red-600 pl-6">
                         Fitness is the foundation of a healthy and active lifestyle, combining strength, endurance, flexibility, and overall well-being. This guide breaks down the core concepts to fuel your balanced and effective fitness journey.
@@ -135,11 +143,12 @@ const BeginnerGuide = ({ onBack }) => {
             {/* ── Footer ── */}
 
             <footer className="py-20 border-t border-white/[0.05] flex flex-col items-center relative z-20 bg-black">
-                <div className="text-white/20 text-[0.6rem] tracking-[0.5em] uppercase mb-4">
-                    FedFit Elite Performance
+                <div className="text-xl font-black italic tracking-tighter uppercase mb-4 opacity-20">
+                    <span className="text-white">FED</span>
+                    <span className="text-white">FIT</span>
                 </div>
                 <div className="text-white/10 text-[0.5rem] tracking-[0.3em] uppercase">
-                    &copy; 2024 FedFit. All Rights Reserved.
+                    &copy; 2026 FedFit. All Rights Reserved.
                 </div>
             </footer>
         </div>

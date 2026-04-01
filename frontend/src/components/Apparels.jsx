@@ -15,8 +15,13 @@ const Apparels = ({ onBack }) => {
                     </svg>
                     Back
                 </button>
-                <div className="text-base font-black tracking-tight uppercase">
-                    <span className="text-red-600">Fed</span>Fit <span className="text-white/30">— Apparels</span>
+                <div className="flex items-center gap-4">
+                    <img src="/images/logo/logo.jpeg" alt="FedFit Logo" className="w-8 h-8 rounded-full border border-red-600/30 shadow-[0_0_15px_rgba(239,68,68,0.2)]" />
+                    <div className="text-xl font-black italic tracking-tighter uppercase whitespace-nowrap flex items-center">
+                        <span className="text-white/50">FED</span>
+                        <span className="text-red-600">FIT</span>
+                        <span className="ml-3 text-[0.6rem] text-white/30 tracking-[0.3em] font-bold">— APPARELS</span>
+                    </div>
                 </div>
                 <div className="w-20 hidden md:block" />
             </header>
@@ -40,9 +45,10 @@ const Apparels = ({ onBack }) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.08 }}
-                    className="text-5xl md:text-6xl font-black uppercase tracking-tight mb-16 text-center leading-none"
+                    className="text-5xl md:text-8xl font-black uppercase tracking-tight mb-16 text-center leading-none"
                 >
-                    FedFit <span className="text-red-600">Apparels</span>
+                    <div className="text-white/10 text-2xl md:text-4xl italic font-light tracking-[0.2em] mb-4">FEDFIT</div>
+                    APPARELS
                 </motion.h1>
 
                 {/* Product Image */}
@@ -89,6 +95,17 @@ const Apparels = ({ onBack }) => {
                     Performance Wear · Engineered for Champions
                 </motion.p>
             </main>
+
+            {/* Footer */}
+            <footer className="py-20 border-t border-white/[0.05] flex flex-col items-center bg-black">
+                <div className="text-xl font-black italic tracking-tighter uppercase mb-4 opacity-20">
+                    <span className="text-white">FED</span>
+                    <span className="text-white">FIT</span>
+                </div>
+                <div className="text-white/10 text-[0.5rem] tracking-[0.3em] uppercase">
+                    &copy; 2026 FedFit. All Rights Reserved.
+                </div>
+            </footer>
         </div>
     );
 };

@@ -179,9 +179,14 @@ const LifeCare = ({ onBack }) => {
                 </button>
 
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
-                    <h1 className="text-white text-base md:text-xl font-black uppercase tracking-[0.3em] whitespace-nowrap leading-none">
-                        FedFit <span className="text-red-600">LifeCare</span>
-                    </h1>
+                    <div className="flex items-center gap-4">
+                        <img src="/images/logo/logo.jpeg" alt="FedFit Logo" className="w-8 h-8 rounded-full border border-red-600/30 shadow-[0_0_15px_rgba(239,68,68,0.2)]" />
+                        <div className="text-2xl font-black italic tracking-tighter uppercase whitespace-nowrap flex items-center">
+                            <span className="text-white/50">FED</span>
+                            <span className="text-red-600">FIT</span>
+                            <span className="ml-3 text-[0.6rem] text-white/30 tracking-[0.3em] font-bold">— LIFECARE</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="w-10" />
@@ -198,9 +203,9 @@ const LifeCare = ({ onBack }) => {
                         className="text-center"
                     >
                         <span className="text-red-600 text-[0.6rem] font-black uppercase tracking-[0.4em] mb-4 block">Holistic Wellness</span>
-                        <h2 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tight mb-8 leading-tight">
-                            Lifestyle Diseases – <br />
-                            <span className="text-red-600">Awareness, Prevention & Care</span>
+                        <h2 className="text-white text-3xl md:text-6xl font-black uppercase tracking-tight mb-8 leading-[0.9]">
+                            <span className="text-white/10 block mb-2 text-2xl md:text-3xl italic font-medium tracking-[0.2em] font-light">FEDFIT</span>
+                            LIFESTYLE <span className="text-red-600">CARE</span>
                         </h2>
                         <p className="text-white/60 text-sm md:text-lg font-light leading-relaxed tracking-wide text-justify md:text-center max-w-4xl mx-auto">
                             At FedFit LifeCare, we focus on the prevention, management, and reversal of lifestyle diseases that are increasingly affecting people of all ages. Conditions such as high uric acid levels, cholesterol imbalance, diabetes, high blood pressure, and elevated creatinine are often the result of modern lifestyle habits including poor diet, lack of physical activity, stress, and inadequate sleep. Our approach is centered on holistic care—combining personalized nutrition plans, fitness guidance, and medical awareness to help you regain control of your health.

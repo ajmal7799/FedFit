@@ -679,8 +679,13 @@ const Academy = ({ onBack }) => {
                     </svg>
                     Back to Home
                 </button>
-                <div className="text-xl font-black tracking-tight uppercase">
-                    <span className="text-red-600">FedFit</span> Academy
+                <div className="flex items-center gap-4">
+                    <img src="/images/logo/logo.jpeg" alt="FedFit Logo" className="w-8 h-8 rounded-full border border-red-600/30 shadow-[0_0_15px_rgba(239,68,68,0.2)]" />
+                    <div className="text-2xl font-black italic tracking-tighter uppercase flex items-center">
+                        <span className="text-white/50">FED</span>
+                        <span className="text-red-600">FIT</span>
+                        <span className="ml-3 text-[0.6rem] text-white/30 tracking-[0.3em] font-bold">— ACADEMY</span>
+                    </div>
                 </div>
                 <div className="w-24 hidden md:block" />
             </header>
@@ -749,7 +754,9 @@ const Academy = ({ onBack }) => {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.168.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                     </svg>
                                 </div>
-                                <h2 className="text-3xl font-black uppercase tracking-tight mb-4">Academic Portal</h2>
+                                <h2 className="text-3xl font-black uppercase tracking-tight mb-4 italic">
+                                    <span className="text-white/20 font-light">FEDFIT</span> ACADEMIC <span className="text-red-600">PORTAL</span>
+                                </h2>
                                 <p className="text-white/30 max-w-xs mx-auto text-sm tracking-wide">Select a chapter from the curriculum to access the FedFit scientific performance database.</p>
                             </div>
                         )}
@@ -815,11 +822,12 @@ const Academy = ({ onBack }) => {
             `}</style>
             
             <footer className="py-20 border-t border-white/[0.05] flex flex-col items-center relative z-20 bg-black">
-                <div className="text-white/20 text-[0.6rem] tracking-[0.5em] uppercase mb-4">
-                    FedFit Elite Academy
+                <div className="text-xl font-black italic tracking-tighter uppercase mb-4 opacity-20">
+                    <span className="text-white">FED</span>
+                    <span className="text-white">FIT</span>
                 </div>
                 <div className="text-white/10 text-[0.5rem] tracking-[0.3em] uppercase">
-                    &copy; 2024 FedFit. All Rights Reserved.
+                    &copy; 2026 FedFit. All Rights Reserved.
                 </div>
             </footer>
         </div>

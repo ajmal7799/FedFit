@@ -14,11 +14,17 @@ const HomeAnimation = ({ onNavigate }) => {
         height: '',
         weight: '',
         gender: '',
+        allergies: '',
         injuries: '',
-        otherInjuries: ''
+        otherInjuries: '',
+        muscleFocus: '',
+        customMuscleFocus: ''
     });
 
     const commonInjuries = ['Knee Pain', 'Back Pain', 'Shoulder Injury', 'None'];
+    const commonMuscleFocus = ['Chest Focus', 'Upper Body Focus', 'Lower Body Focus', 'None'];
+
+
 
     const handleFormChange = (e) => {
         const { name, value } = e.target;
@@ -35,7 +41,10 @@ const HomeAnimation = ({ onNavigate }) => {
             `*Height:* ${formData.height} cm%0A` +
             `*Weight:* ${formData.weight} kg%0A` +
             `*Gender:* ${formData.gender}%0A` +
-            `*Injuries:* ${formData.injuries === 'Other' ? formData.otherInjuries : formData.injuries}`;
+            (selectedProgram?.title.toLowerCase().includes('workout') ? `*Muscle Focus:* ${formData.muscleFocus === 'Customise' ? formData.customMuscleFocus : formData.muscleFocus}%0A` : '') +
+            (selectedProgram?.title.toLowerCase().includes('diet') 
+                ? `*Allergies:* ${formData.allergies}`
+                : `*Injuries:* ${formData.injuries === 'Other' ? formData.otherInjuries : formData.injuries}`);
         
         window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
         setModalOpen(false);
@@ -151,7 +160,7 @@ const HomeAnimation = ({ onNavigate }) => {
         { id: 1, title: 'Personal Coaching', image: '/images/service/personalcoaching.png', tag: 'Elite Training' },
         { id: 2, title: 'Diet Plan', image: '/images/service/dietplan.png', tag: 'Nutrition' },
         { id: 3, title: 'Workout Plan', image: '/images/service/workoutplan.png', tag: 'Custom Routines' },
-        { id: 4, title: 'Apparel', image: '/images/service/apparel.png', tag: 'Branded Gear' }
+        { id: 4, title: 'Apparel', image: '/images/service/apparel.png', tag: 'Branded Gear', isComingSoon: true }
     ];
 
     const [activeService, setActiveService] = useState(0);
@@ -186,7 +195,13 @@ const HomeAnimation = ({ onNavigate }) => {
                 >
                     {/* Logo */}
                     <div className="flex items-center">
-                        <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-14 w-auto object-contain cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+                        <div 
+                            className="text-4xl font-black italic tracking-tighter uppercase cursor-pointer hover:opacity-80 transition-opacity"
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        >
+                            <span className="text-white/50">FED</span>
+                            <span className="text-red-600">FIT</span>
+                        </div>
                     </div>
 
                     {/* Desktop Nav */}
@@ -265,7 +280,10 @@ const HomeAnimation = ({ onNavigate }) => {
                                 className="fixed inset-y-0 left-0 w-4/5 max-w-xs bg-[#0d0d0d] border-r border-white/10 z-[101] md:hidden p-8 flex flex-col"
                             >
                                 <div className="mb-12 pt-4">
-                                    <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-16 w-auto object-contain" />
+                                    <div className="text-5xl font-black italic tracking-tighter uppercase">
+                                        <span className="text-white/50">FED</span>
+                                        <span className="text-red-600">FIT</span>
+                                    </div>
                                 </div>
                                 
                                 <nav className="flex flex-col gap-5 overflow-y-auto max-h-[60vh] py-2">
@@ -366,7 +384,7 @@ const HomeAnimation = ({ onNavigate }) => {
                         <p className="text-white/60 font-normal leading-relaxed tracking-wide m-0 text-[0.75rem] sm:text-[0.82rem] md:text-[0.9rem] max-w-[200px] sm:max-w-[240px] md:max-w-[260px]">
                             Elite coaching. Proven results.<br />Built for those who refuse to settle.
                         </p>
-                        <a href="#services" className="mt-1 md:mt-2 self-start px-6 py-2.5 sm:px-7 sm:py-3 md:px-9 md:py-3 bg-red-600 hover:bg-red-500 text-white text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] font-bold tracking-[0.22em] uppercase no-underline transition-all duration-200 hover:-translate-y-0.5 [clip-path:polygon(0_0,calc(100%-10px)_0,100%_10px,100%_100%,10px_100%,0_calc(100%-10px))]">
+                        <a href="#programs" className="mt-1 md:mt-2 self-start px-6 py-2.5 sm:px-7 sm:py-3 md:px-9 md:py-3 bg-red-600 hover:bg-red-500 text-white text-[0.65rem] sm:text-[0.7rem] md:text-[0.75rem] font-bold tracking-[0.22em] uppercase no-underline transition-all duration-200 hover:-translate-y-0.5 [clip-path:polygon(0_0,calc(100%-10px)_0,100%_10px,100%_100%,10px_100%,0_calc(100%-10px))]">
                             Get Started
                         </a>
                     </motion.div>
@@ -387,6 +405,81 @@ const HomeAnimation = ({ onNavigate }) => {
                 </motion.div>
             </div>
 
+            {/* ── Complete Fitness Solution Section ── */}
+            <section className="relative w-full py-28 px-5 sm:px-12 md:px-20 bg-[#080808] border-t border-white/[0.03] overflow-hidden">
+                {/* Background Decor */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-red-600/5 blur-[120px] rounded-full pointer-events-none" />
+                
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-24"
+                    >
+                        <h2 className="text-white text-4xl md:text-7xl font-black uppercase tracking-tight mb-8 leading-none">
+                            Your <span className="text-red-600 font-outline-2">Complete</span> <br/> 
+                            <span className="text-red-600">Fitness</span> Solution
+                        </h2>
+                        <p className="max-w-3xl mx-auto text-white/50 text-lg md:text-xl font-light leading-relaxed tracking-wide">
+                            Fedfit is a complete fitness and lifestyle platform that goes beyond training. 
+                            It offers personal training, diet planning, and customized workout plans, 
+                            along with these high-performance features:
+                        </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {[
+                            { 
+                                title: "Exercise Library & Nutrition Guide", 
+                                desc: "Detailed exercise tutorials and basic nutrition knowledge to optimize your results.",
+                                icon: "📚"
+                            },
+                            { 
+                                title: "Fedfit Quick Aid", 
+                                desc: "Emergency preparedness with expert guidance on CPR and choking protocols.",
+                                icon: "🚑"
+                            },
+                            { 
+                                title: "Fedfit Academy", 
+                                desc: "Structured fitness education with deep-dive chapters designed for mastery.",
+                                icon: "🎓"
+                            },
+                            { 
+                                title: "Fedfit Lifecare", 
+                                desc: "Professional awareness and prevention strategies for common lifestyle diseases.",
+                                icon: "❤️"
+                            },
+                            { 
+                                title: "Beginner’s Guide", 
+                                desc: "Empowering newcomers to start their journey with confidence and expert knowledge.",
+                                icon: "🚀"
+                            }
+                        ].map((feature, idx) => (
+                            <motion.div
+                                key={feature.title}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                whileHover={{ y: -10, backgroundColor: 'rgba(255,255,255,0.04)' }}
+                                className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/[0.04] transition-all duration-500 group"
+                            >
+                                <div className="text-5xl mb-8 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                                    {feature.icon}
+                                </div>
+                                <h3 className="text-white text-xl font-black uppercase tracking-wider mb-4 group-hover:text-red-600 transition-colors">
+                                    {feature.title}
+                                </h3>
+                                <p className="text-white/40 text-sm leading-relaxed font-light group-hover:text-white/60 transition-colors">
+                                    {feature.desc}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* ── Services Section ── */}
             <section id="services" className="relative w-full py-20 px-5 sm:px-12 md:px-20 bg-[#050505] border-t border-white/[0.03]">
                 <div className="max-w-7xl mx-auto">
@@ -397,14 +490,24 @@ const HomeAnimation = ({ onNavigate }) => {
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                whileHover={{ y: -5 }}
+                                whileHover={!service.isComingSoon ? { y: -5 } : {}}
                                 className="relative h-[480px] overflow-hidden rounded-sm group bg-[#0a0a0a] flex items-center justify-center p-4 border border-white/[0.02]"
                             >
                                 <img 
                                     src={service.image} 
                                     alt={service.title} 
-                                    className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-110 relative z-10" 
+                                    className={`w-full h-full object-contain transition-transform duration-1000 ${!service.isComingSoon ? 'group-hover:scale-110' : 'opacity-60 blur-[3px]'} relative z-10`} 
                                 />
+                                {service.isComingSoon && (
+                                    <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/20 backdrop-blur-[1px]">
+                                        <div className="w-16 h-16 rounded-full border border-red-600/50 flex items-center justify-center mb-4 bg-black/40">
+                                            <svg className="w-8 h-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                            </svg>
+                                        </div>
+                                        <span className="text-white text-[0.6rem] font-black uppercase tracking-[0.4em] bg-red-600 px-4 py-1.5 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.3)]">Coming Soon</span>
+                                    </div>
+                                )}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-20" />
                             </motion.div>
                         ))}
@@ -416,7 +519,17 @@ const HomeAnimation = ({ onNavigate }) => {
                             {services.map((service) => (
                             <div key={service.id} className="w-full flex-shrink-0 px-2 lg:px-4">
                                 <div className="relative h-[450px] w-full overflow-hidden rounded-sm group bg-[#0a0a0a] flex items-center justify-center">
-                                    <img src={service.image} alt={service.title} className="w-full h-full object-contain relative z-10 transition-transform duration-700 group-hover:scale-110" />
+                                    <img src={service.image} alt={service.title} className={`w-full h-full object-contain relative z-10 transition-transform duration-700 ${!service.isComingSoon ? 'group-hover:scale-110' : 'opacity-60 blur-[2px]'}`} />
+                                    {service.isComingSoon && (
+                                        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/10 backdrop-blur-[1px]">
+                                            <div className="w-14 h-14 rounded-full border border-red-600/30 flex items-center justify-center mb-4 bg-black/40">
+                                                <svg className="w-7 h-7 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                                </svg>
+                                            </div>
+                                            <span className="text-white text-[0.55rem] font-black uppercase tracking-[0.3em] bg-red-600 px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(239,68,68,0.3)]">Coming Soon</span>
+                                        </div>
+                                    )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500 z-20" />
                                 </div>
                             </div>
@@ -605,7 +718,7 @@ const HomeAnimation = ({ onNavigate }) => {
                         {/* Brand Column */}
                         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                             <div className="mb-6">
-                                <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-28 w-auto object-contain" />
+                                <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-40 w-auto object-contain" />
                             </div>
                             <p className="text-white/40 text-sm leading-relaxed max-w-xs font-light tracking-wide mb-8">
                                 Elite performance coaching and high-end fitness solutions for those who refuse to settle. Join the revolution.
@@ -662,7 +775,7 @@ const HomeAnimation = ({ onNavigate }) => {
                             Designed for elite performance
                         </div>
                         <div className="text-white/20 text-[0.6rem] tracking-[0.4em] uppercase text-center md:text-right">
-                            &copy; 2024 FedFit. All Rights Reserved.
+                            &copy; 2026 FedFit. All Rights Reserved.
                         </div>
                     </div>
                 </div>
@@ -728,30 +841,74 @@ const HomeAnimation = ({ onNavigate }) => {
                                     </div>
                                 </div>
 
-                                <div className="space-y-2">
-                                    <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Injuries / Health Issues</label>
-                                    <div className="grid grid-cols-2 gap-2 mt-2">
-                                        {commonInjuries.map(injury => (
-                                            <label key={injury} className="flex items-center gap-2 group cursor-pointer">
-                                                <input required type="radio" name="injuries" value={injury} onChange={handleFormChange} className="hidden" />
-                                                <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === injury ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
-                                                    {injury}
+                                {selectedProgram?.title.toLowerCase().includes('workout') && (
+                                    <div className="space-y-2 pt-2">
+                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Which muscle focusing?</label>
+                                        <div className="grid grid-cols-2 gap-2 mt-2">
+                                            {commonMuscleFocus.map(focus => (
+                                                <label key={focus} className="flex items-center gap-2 group cursor-pointer">
+                                                    <input required type="radio" name="muscleFocus" value={focus} onChange={handleFormChange} className="hidden" />
+                                                    <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.muscleFocus === focus ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                        {focus}
+                                                    </div>
+                                                </label>
+                                            ))}
+                                            <label className="flex items-center gap-2 group cursor-pointer col-span-2">
+                                                <input type="radio" name="muscleFocus" value="Customise" onChange={handleFormChange} className="hidden" />
+                                                <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.muscleFocus === 'Customise' ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                    Customise
                                                 </div>
                                             </label>
-                                        ))}
-                                        <label className="flex items-center gap-2 group cursor-pointer col-span-2">
-                                            <input type="radio" name="injuries" value="Other" onChange={handleFormChange} className="hidden" />
-                                            <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === 'Other' ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
-                                                Other Injuries
-                                            </div>
-                                        </label>
+                                        </div>
+                                        {formData.muscleFocus === 'Customise' && (
+                                            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="pt-1">
+                                                <input name="customMuscleFocus" onChange={handleFormChange} placeholder="Enter your focusing muscles..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors" />
+                                            </motion.div>
+                                        )}
                                     </div>
-                                </div>
+                                )}
 
-                                {formData.injuries === 'Other' && (
-                                    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="space-y-2">
-                                        <textarea name="otherInjuries" onChange={handleFormChange} placeholder="Please specify your injuries..." className="w-full h-24 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors resize-none" />
-                                    </motion.div>
+                                {selectedProgram?.title.toLowerCase().includes('diet') ? (
+                                    <div className="space-y-2">
+                                        <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Do you have any allergies?</label>
+                                        <div className="grid grid-cols-2 gap-2 mt-2">
+                                            {['Yes', 'No'].map(option => (
+                                                <label key={option} className="flex items-center gap-2 group cursor-pointer">
+                                                    <input required type="radio" name="allergies" value={option} onChange={handleFormChange} className="hidden" />
+                                                    <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.allergies === option ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                        {option}
+                                                    </div>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <div className="space-y-2">
+                                            <label className="text-white/40 text-[0.65rem] font-bold uppercase tracking-widest pl-1">Injuries / Health Issues</label>
+                                            <div className="grid grid-cols-2 gap-2 mt-2">
+                                                {commonInjuries.map(injury => (
+                                                    <label key={injury} className="flex items-center gap-2 group cursor-pointer">
+                                                        <input required type="radio" name="injuries" value={injury} onChange={handleFormChange} className="hidden" />
+                                                        <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === injury ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                            {injury}
+                                                        </div>
+                                                    </label>
+                                                ))}
+                                                <label className="flex items-center gap-2 group cursor-pointer col-span-2">
+                                                    <input type="radio" name="injuries" value="Other" onChange={handleFormChange} className="hidden" />
+                                                    <div className={`px-4 py-2.5 rounded-xl border border-white/10 text-[0.7rem] font-bold uppercase tracking-wider transition-all w-full text-center ${formData.injuries === 'Other' ? 'bg-red-600 text-white border-red-600' : 'bg-white/5 text-white/40 group-hover:bg-white/10'}`}>
+                                                        Other Injuries
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        {formData.injuries === 'Other' && (
+                                            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="space-y-2">
+                                                <textarea name="otherInjuries" onChange={handleFormChange} placeholder="Please specify your injuries..." className="w-full h-24 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-red-600/50 outline-none transition-colors resize-none" />
+                                            </motion.div>
+                                        )}
+                                    </>
                                 )}
 
                                 <motion.button 
