@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import Loader from './components/Loader';
 import HomeAnimation from './components/HomeAnimation';
@@ -15,9 +15,18 @@ import LifeCare from './components/LifeCare';
 
 function App() {
   const [phase, setPhase] = useState('loader');
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll both the container and window to top for consistency
+    if (containerRef.current) {
+      containerRef.current.scrollTo(0, 0);
+    }
+    window.scrollTo(0, 0);
+  }, [phase]);
 
   return (
-    <div className="app-container">
+    <div className="app-container" ref={containerRef}>
       {phase === 'loader' && (
         <Loader onFinish={() => setPhase('home')} />
       )}
