@@ -27,46 +27,46 @@ const HomeAnimation = ({ onNavigate }) => {
     const commonMuscleFocus = ['Upper Body Focus', 'Lower Body Focus', 'None'];
 
 
-const handleFormChange = (e) => {
-    const { name, type, value, checked } = e.target;
-    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-};
+    const handleFormChange = (e) => {
+        const { name, type, value, checked } = e.target;
+        setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const whatsappNumber = "919072711358";
-    const message = `*FedFit Program Inquiry*%0A%0A` +
-        `*Program:* ${selectedProgram?.title}%0A` +
-        `*Name:* ${formData.name}%0A` +
-        `*Age:* ${formData.age}%0A` +
-        `*Height:* ${formData.height} cm%0A` +
-        `*Weight:* ${formData.weight} kg%0A` +
-        `*Gender:* ${formData.gender}%0A` +
-        (selectedProgram?.title.toLowerCase().includes('workout') ? `*Muscle Focus:* ${formData.muscleFocus === 'Customise' ? formData.customMuscleFocus : formData.muscleFocus}%0A` : '') +
-        (selectedProgram?.title.toLowerCase().includes('diet') 
-            ? `*Allergies:* ${formData.allergies === 'Yes' ? formData.allergyDetails || 'Yes (Not specified)' : 'No'}`
-            : (selectedProgram?.title === 'Personal Coaching'
-                ? `*Injuries/Health Issues:* ${formData.injuries === 'Other' ? formData.otherInjuries : (formData.injuries || 'None')}%0A*Lifestyle Disease:* ${formData.lifeDisease || 'None'}`
-                : `*Injuries:* ${formData.hasInjuries ? 'Yes' : 'No'}`));
-    
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-    setModalOpen(false);
-    setFormData({
-        name: '',
-        age: '',
-        height: '',
-        weight: '',
-        gender: '',
-        muscleFocus: '',
-        customMuscleFocus: '',
-        allergies: '',
-        allergyDetails: '',
-        injuries: '',
-        otherInjuries: '',
-        lifeDisease: '',
-        hasInjuries: false,
-    });
-};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const whatsappNumber = "919072711358";
+        const message = `*FedFit Program Inquiry*%0A%0A` +
+            `*Program:* ${selectedProgram?.title}%0A` +
+            `*Name:* ${formData.name}%0A` +
+            `*Age:* ${formData.age}%0A` +
+            `*Height:* ${formData.height} cm%0A` +
+            `*Weight:* ${formData.weight} kg%0A` +
+            `*Gender:* ${formData.gender}%0A` +
+            (selectedProgram?.title.toLowerCase().includes('workout') ? `*Muscle Focus:* ${formData.muscleFocus === 'Customise' ? formData.customMuscleFocus : formData.muscleFocus}%0A` : '') +
+            (selectedProgram?.title.toLowerCase().includes('diet')
+                ? `*Allergies:* ${formData.allergies === 'Yes' ? formData.allergyDetails || 'Yes (Not specified)' : 'No'}`
+                : (selectedProgram?.title === 'Personal Coaching'
+                    ? `*Injuries/Health Issues:* ${formData.injuries === 'Other' ? formData.otherInjuries : (formData.injuries || 'None')}%0A*Lifestyle Disease:* ${formData.lifeDisease || 'None'}`
+                    : `*Injuries:* ${formData.hasInjuries ? 'Yes' : 'No'}`));
+
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        setModalOpen(false);
+        setFormData({
+            name: '',
+            age: '',
+            height: '',
+            weight: '',
+            gender: '',
+            muscleFocus: '',
+            customMuscleFocus: '',
+            allergies: '',
+            allergyDetails: '',
+            injuries: '',
+            otherInjuries: '',
+            lifeDisease: '',
+            hasInjuries: false,
+        });
+    };
 
     const frameCount = 90;
     const fps = 40;
@@ -91,7 +91,7 @@ const handleFormChange = (e) => {
 
         const startAnimationLoop = (loadedImages) => {
             if (!isAnimating) return;
-            
+
             const firstImg = loadedImages[0];
             if (firstImg) {
                 canvas.width = firstImg.width;
@@ -162,15 +162,15 @@ const handleFormChange = (e) => {
 
 
     const navItems = [
-        'Home', 
-        'Programs', 
-        'Exercise library & Nutrition guide', 
-        'Fedfit quick aid', 
-        'Fedfit academy', 
-        'Fedfit LifeCare', 
-        'Beginners guide', 
-        'Fedfit apparels', 
-        'About us', 
+        'Home',
+        'Programs',
+        'Exercise library & Nutrition guide',
+        'Fedfit quick aid',
+        'Fedfit academy',
+        'Fedfit LifeCare',
+        'Beginners guide',
+        'Fedfit apparels',
+        'About us',
         'Contact us'
     ];
 
@@ -213,7 +213,7 @@ const handleFormChange = (e) => {
                 >
                     {/* Logo */}
                     <div className="flex items-center">
-                        <div 
+                        <div
                             className="text-4xl font-black italic tracking-tighter uppercase cursor-pointer hover:opacity-80 transition-opacity"
                             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         >
@@ -227,7 +227,7 @@ const handleFormChange = (e) => {
                         {navItems.map((item) => (
                             <a
                                 key={item}
-                                href={['Beginners guide','Fedfit academy','Fedfit quick aid','Contact us','About us','Fedfit apparels'].includes(item) ? '#' : `#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                                href={['Beginners guide', 'Fedfit academy', 'Fedfit quick aid', 'Contact us', 'About us', 'Fedfit apparels'].includes(item) ? '#' : `#${item.toLowerCase().replace(/\s+/g, '-')}`}
                                 onClick={(e) => {
                                     if (item === 'Beginners guide') {
                                         e.preventDefault(); onNavigate('beginner-guide');
@@ -288,7 +288,7 @@ const handleFormChange = (e) => {
                                 onClick={() => setMenuOpen(false)}
                                 className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] md:hidden"
                             />
-                            
+
                             {/* Drawer */}
                             <motion.div
                                 initial={{ x: '-100%' }}
@@ -303,12 +303,12 @@ const handleFormChange = (e) => {
                                         <span className="text-red-600">FIT</span>
                                     </div>
                                 </div>
-                                
+
                                 <nav className="flex flex-col gap-5 overflow-y-auto max-h-[60vh] py-2">
                                     {navItems.map((item, i) => (
                                         <motion.a
                                             key={item}
-                                            href={['Beginners guide','Fedfit academy','Fedfit quick aid','Contact us','About us','Fedfit apparels'].includes(item) ? '#' : `#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                                            href={['Beginners guide', 'Fedfit academy', 'Fedfit quick aid', 'Contact us', 'About us', 'Fedfit apparels'].includes(item) ? '#' : `#${item.toLowerCase().replace(/\s+/g, '-')}`}
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.1 + (i * 0.05) }}
@@ -427,7 +427,7 @@ const handleFormChange = (e) => {
             <section className="relative w-full py-28 px-5 sm:px-12 md:px-20 bg-[#080808] border-t border-white/[0.03] overflow-hidden">
                 {/* Background Decor */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-red-600/5 blur-[120px] rounded-full pointer-events-none" />
-                
+
                 <div className="max-w-7xl mx-auto relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -436,42 +436,47 @@ const handleFormChange = (e) => {
                         className="text-center mb-24"
                     >
                         <h2 className="text-white text-4xl md:text-7xl font-black uppercase tracking-tight mb-8 leading-none">
-                            Your <span className="text-red-600 font-outline-2">Complete</span> <br/> 
+                            Your <span className="text-red-600 font-outline-2">Complete</span> <br />
                             <span className="text-red-600">Fitness</span> Solution
                         </h2>
                         <p className="max-w-3xl mx-auto text-white/50 text-lg md:text-xl font-light leading-relaxed tracking-wide">
-                            Fedfit is a complete fitness and lifestyle platform that goes beyond training. 
-                            It offers personal training, diet planning, and customized workout plans, 
+                            Fedfit is a complete fitness and lifestyle platform that goes beyond training.
+                            It offers personal training, diet planning, and customized workout plans,
                             along with these high-performance features:
                         </p>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { 
-                                title: "Exercise Library & Nutrition Guide", 
+                            {
+                                title: "Exercise Library & Nutrition Guide",
                                 desc: "Detailed exercise tutorials and basic nutrition knowledge to optimize your results.",
-                                icon: "📚"
+                                icon: "📚",
+                                nav: "exercise-library"
                             },
-                            { 
-                                title: "Fedfit Quick Aid", 
+                            {
+                                title: "Fedfit Quick Aid",
                                 desc: "Emergency preparedness with expert guidance on CPR and choking protocols.",
-                                icon: "🚑"
+                                icon: "🚑",
+                                nav: "quick-aid"
                             },
-                            { 
-                                title: "Fedfit Academy", 
+                            {
+                                title: "Fedfit Academy",
                                 desc: "Structured fitness education with deep-dive chapters designed for mastery.",
-                                icon: "🎓"
+                                icon: "🎓",
+                                nav: "academy"
                             },
-                            { 
-                                title: "Fedfit Lifecare", 
+                            {
+                                title: "Fedfit Lifecare",
                                 desc: "Professional awareness and prevention strategies for common lifestyle diseases.",
-                                icon: "❤️"
+                                icon: "❤️",
+                                nav: "lifecare"
                             },
-                            { 
-                                title: "Beginner’s Guide", 
+                            {
+                                title: "Beginner’s Guide",
                                 desc: "Empowering newcomers to start their journey with confidence and expert knowledge.",
-                                icon: "🚀"
+                                icon: "🚀",
+                                nav: "beginner-guide"
                             }
                         ].map((feature, idx) => (
                             <motion.div
@@ -481,7 +486,8 @@ const handleFormChange = (e) => {
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
                                 whileHover={{ y: -10, backgroundColor: 'rgba(255,255,255,0.04)' }}
-                                className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/[0.04] transition-all duration-500 group"
+                                onClick={() => onNavigate(feature.nav)}
+                                className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/[0.04] transition-all duration-500 group cursor-pointer"
                             >
                                 <div className="text-5xl mb-8 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
                                     {feature.icon}
@@ -503,18 +509,18 @@ const handleFormChange = (e) => {
                 <div className="max-w-7xl mx-auto">
                     <div className="hidden lg:grid grid-cols-4 gap-6">
                         {services.map((service) => (
-                            <motion.div 
-                                key={service.id} 
+                            <motion.div
+                                key={service.id}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 whileHover={!service.isComingSoon ? { y: -5 } : {}}
                                 className="relative h-[480px] overflow-hidden rounded-sm group bg-[#0a0a0a] flex items-center justify-center p-4 border border-white/[0.02]"
                             >
-                                <img 
-                                    src={service.image} 
-                                    alt={service.title} 
-                                    className={`w-full h-full object-contain transition-transform duration-1000 ${!service.isComingSoon ? 'group-hover:scale-110' : 'opacity-60 blur-[3px]'} relative z-10`} 
+                                <img
+                                    src={service.image}
+                                    alt={service.title}
+                                    className={`w-full h-full object-contain transition-transform duration-1000 ${!service.isComingSoon ? 'group-hover:scale-110' : 'opacity-85'} relative z-10`}
                                 />
                                 {service.isComingSoon && (
                                     <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/20 backdrop-blur-[1px]">
@@ -535,22 +541,22 @@ const handleFormChange = (e) => {
                     <div className="lg:hidden relative overflow-hidden group">
                         <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${activeService * 100}%)` }}>
                             {services.map((service) => (
-                            <div key={service.id} className="w-full flex-shrink-0 px-2 lg:px-4">
-                                <div className="relative h-[450px] w-full overflow-hidden rounded-sm group bg-[#0a0a0a] flex items-center justify-center">
-                                    <img src={service.image} alt={service.title} className={`w-full h-full object-contain relative z-10 transition-transform duration-700 ${!service.isComingSoon ? 'group-hover:scale-110' : 'opacity-60 blur-[2px]'}`} />
-                                    {service.isComingSoon && (
-                                        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/10 backdrop-blur-[1px]">
-                                            <div className="w-14 h-14 rounded-full border border-red-600/30 flex items-center justify-center mb-4 bg-black/40">
-                                                <svg className="w-7 h-7 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                                </svg>
+                                <div key={service.id} className="w-full flex-shrink-0 px-2 lg:px-4">
+                                    <div className="relative h-[450px] w-full overflow-hidden rounded-sm group bg-[#0a0a0a] flex items-center justify-center">
+                                        <img src={service.image} alt={service.title} className={`w-full h-full object-contain relative z-10 transition-transform duration-700 ${!service.isComingSoon ? 'group-hover:scale-110' : 'opacity-85'}`} />
+                                        {service.isComingSoon && (
+                                            <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/10 backdrop-blur-[1px]">
+                                                <div className="w-14 h-14 rounded-full border border-red-600/30 flex items-center justify-center mb-4 bg-black/40">
+                                                    <svg className="w-7 h-7 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                                    </svg>
+                                                </div>
+                                                <span className="text-white text-[0.55rem] font-black uppercase tracking-[0.3em] bg-red-600 px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(239,68,68,0.3)]">Coming Soon</span>
                                             </div>
-                                            <span className="text-white text-[0.55rem] font-black uppercase tracking-[0.3em] bg-red-600 px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(239,68,68,0.3)]">Coming Soon</span>
-                                        </div>
-                                    )}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500 z-20" />
+                                        )}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500 z-20" />
+                                    </div>
                                 </div>
-                            </div>
                             ))}
                         </div>
                         <div className="flex justify-center gap-3 mt-10">
@@ -570,7 +576,7 @@ const handleFormChange = (e) => {
             <section id="programs" className="relative w-full py-20 px-5 sm:px-12 md:px-20 bg-black border-t border-white/[0.03]">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <motion.h3 
+                        <motion.h3
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -585,22 +591,22 @@ const handleFormChange = (e) => {
                             const isDiet = program.title.toLowerCase().includes('diet');
                             const glowColor = isDiet ? 'rgba(74, 222, 128, 0.4)' : 'rgba(239, 68, 68, 0.4)';
                             const borderColor = isDiet ? '#4ade80' : '#ef4444';
-                            
+
                             // Mock icons for the visual look in the reference
                             const Icon = () => {
                                 if (program.title.includes('Coaching')) return (
-                                    <svg viewBox="0 0 24 24" fill="white" className="w-10 h-10 mb-4 opacity-90"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="white" className="w-10 h-10 mb-4 opacity-90"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" /></svg>
                                 );
                                 if (program.title.includes('Diet')) return (
-                                    <svg viewBox="0 0 24 24" fill="white" className="w-10 h-10 mb-4 opacity-90"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="white" className="w-10 h-10 mb-4 opacity-90"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" /></svg>
                                 );
                                 return (
-                                    <svg viewBox="0 0 24 24" fill="white" className="w-12 h-12 mb-4 opacity-90"><path d="M20.5 7h-3V6c0-1.1-.9-2-2-2h-7c-1.1 0-2 .9-2 2v1h-3C2.56 7 2 7.56 2 8.2v7.6c0 .64.56 1.2 1.25 1.2h3V18c0 1.1.9 2 2 2h7c1.1 0 2-.9 2-2v-1h3c.69 0 1.25-.56 1.25-1.2V8.2c0-.64-.56-1.2-1.25-1.2zM8.5 6h7v11h-7V6z"/></svg>
+                                    <svg viewBox="0 0 24 24" fill="white" className="w-12 h-12 mb-4 opacity-90"><path d="M20.5 7h-3V6c0-1.1-.9-2-2-2h-7c-1.1 0-2 .9-2 2v1h-3C2.56 7 2 7.56 2 8.2v7.6c0 .64.56 1.2 1.25 1.2h3V18c0 1.1.9 2 2 2h7c1.1 0 2-.9 2-2v-1h3c.69 0 1.25-.56 1.25-1.2V8.2c0-.64-.56-1.2-1.25-1.2zM8.5 6h7v11h-7V6z" /></svg>
                                 );
                             };
 
                             return (
-                                <motion.div 
+                                <motion.div
                                     key={program.id}
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -610,9 +616,9 @@ const handleFormChange = (e) => {
                                     className="relative flex flex-col items-center group cursor-pointer"
                                 >
                                     {/* Glowy Card Outer Container */}
-                                    <div 
+                                    <div
                                         className="relative w-full h-[600px] rounded-[3.5rem] overflow-hidden border-2 flex flex-col items-center justify-center transition-all duration-500 shadow-2xl"
-                                        style={{ 
+                                        style={{
                                             borderColor: borderColor,
                                             boxShadow: `0 0 40px ${glowColor}, inset 0 0 30px ${glowColor}`,
                                             background: '#050505'
@@ -620,16 +626,16 @@ const handleFormChange = (e) => {
                                     >
                                         {/* Background Image (Full Crop/Fit) */}
                                         <div className="absolute inset-0 z-0">
-                                            <img 
-                                                src={program.image} 
-                                                alt={program.title} 
-                                                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110 brightness-50" 
+                                            <img
+                                                src={program.image}
+                                                alt={program.title}
+                                                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110 brightness-50"
                                             />
                                             {/* Complex Vignette Gradient */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                                             <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent" />
                                         </div>
-                                        
+
                                         {/* Centered Content Overlay (Stacked like reference) */}
                                         <div className="relative z-20 flex flex-col items-center px-8 text-center h-full pt-16 pb-12">
                                             <div className="mt-auto mb-auto flex flex-col items-center">
@@ -640,16 +646,16 @@ const handleFormChange = (e) => {
                                                     ))}
                                                 </h4>
                                             </div>
-                                            
+
                                             {/* Click Here Button */}
-                                            <motion.button 
+                                            <motion.button
                                                 onClick={() => {
                                                     setSelectedProgram(program);
                                                     setModalOpen(true);
                                                 }}
                                                 whileHover={{ scale: 1.05, background: borderColor }}
                                                 className="mt-auto px-12 py-3.5 rounded-full border border-white/20 text-white font-black uppercase tracking-[0.25em] text-[0.75rem] backdrop-blur-xl transition-all duration-300 pointer-events-auto"
-                                                style={{ 
+                                                style={{
                                                     background: `linear-gradient(90deg, rgba(20,20,20,0.9) 0%, ${glowColor} 100%)`,
                                                     boxShadow: `0 10px 30px rgba(0,0,0,0.9)`
                                                 }}
@@ -672,7 +678,7 @@ const handleFormChange = (e) => {
             <section id="reviews" className="relative w-full py-28 px-5 sm:px-12 md:px-20 bg-[#050505] border-t border-white/[0.03]">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20">
-                        <motion.h2 
+                        <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -680,7 +686,7 @@ const handleFormChange = (e) => {
                         >
                             Social Proof
                         </motion.h2>
-                        <motion.h3 
+                        <motion.h3
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -697,7 +703,7 @@ const handleFormChange = (e) => {
                             { name: "Sarah Jenkins", role: "Nutrition Client", text: "The diet plans are so easy to follow and the results were almost immediate. Truly elite performance and scientific approach." },
                             { name: "David Lyons", role: "Powerlifter", text: "The workout routines are intense but perfectly tailored for my goals. Best thing I've done for my health and strength." }
                         ].map((review, index) => (
-                            <motion.div 
+                            <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -736,17 +742,17 @@ const handleFormChange = (e) => {
                         {/* Brand Column */}
                         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                             <div className="mb-6">
-                                <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-[240px] w-auto object-contain" />
+                                <img src="/images/logo/logo+title.jpeg" alt="FedFit Logo" className="h-[420px] w-auto object-contain" />
                             </div>
                             <p className="text-white/40 text-sm leading-relaxed max-w-xs font-light tracking-wide mb-8">
                                 Elite performance coaching and high-end fitness solutions for those who refuse to settle. Join the revolution.
                             </p>
                             <div className="flex gap-6">
                                 <a href="https://www.instagram.com/fd.fahd?igsh=eThxNThxb284eG9y" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all duration-300 group">
-                                    <svg className="w-5 h-5 fill-white/40 group-hover:fill-white transition-colors" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                    <svg className="w-5 h-5 fill-white/40 group-hover:fill-white transition-colors" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
                                 </a>
                                 <a href="https://wa.me/919072711358" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all duration-300 group">
-                                    <svg className="w-5 h-5 fill-white/40 group-hover:fill-white transition-colors" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.589.943 3.133 1.432 4.717 1.433 5.093 0 9.235-4.144 9.237-9.237.001-2.463-.956-4.78-2.695-6.521-1.739-1.74-4.053-2.699-6.523-2.701-5.11 0-9.237 4.147-9.24 9.239-.001 1.688.487 3.15 1.411 4.606l-.995 3.635 3.73-.979zm12.56-4.521c-.341-.171-2.02-.996-2.333-1.111-.313-.114-.541-.171-.77.171-.228.341-.884 1.111-1.084 1.339-.199.228-.399.256-.74.085-.341-.171-1.44-.531-2.743-1.693-1.014-.904-1.7-2.022-1.899-2.363-.199-.341-.022-.525.149-.694.154-.153.341-.399.512-.598.171-.199.228-.341.342-.569.114-.228.057-.427-.028-.598-.085-.171-.77-1.854-1.055-2.538-.278-.666-.56-.575-.77-.585-.199-.01-.427-.011-.655-.011-.228 0-.598.085-.912.427-.313.341-1.198 1.169-1.198 2.849 0 1.68 1.226 3.305 1.397 3.533.171.228 2.413 3.685 5.845 5.166.817.352 1.454.562 1.95.72.82.261 1.567.224 2.158.136.659-.098 2.02-.826 2.305-1.623.285-.796.285-1.48.199-1.623-.085-.144-.313-.228-.655-.399z"/></svg>
+                                    <svg className="w-5 h-5 fill-white/40 group-hover:fill-white transition-colors" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.589.943 3.133 1.432 4.717 1.433 5.093 0 9.235-4.144 9.237-9.237.001-2.463-.956-4.78-2.695-6.521-1.739-1.74-4.053-2.699-6.523-2.701-5.11 0-9.237 4.147-9.24 9.239-.001 1.688.487 3.15 1.411 4.606l-.995 3.635 3.73-.979zm12.56-4.521c-.341-.171-2.02-.996-2.333-1.111-.313-.114-.541-.171-.77.171-.228.341-.884 1.111-1.084 1.339-.199.228-.399.256-.74.085-.341-.171-1.44-.531-2.743-1.693-1.014-.904-1.7-2.022-1.899-2.363-.199-.341-.022-.525.149-.694.154-.153.341-.399.512-.598.171-.199.228-.341.342-.569.114-.228.057-.427-.028-.598-.085-.171-.77-1.854-1.055-2.538-.278-.666-.56-.575-.77-.585-.199-.01-.427-.011-.655-.011-.228 0-.598.085-.912.427-.313.341-1.198 1.169-1.198 2.849 0 1.68 1.226 3.305 1.397 3.533.171.228 2.413 3.685 5.845 5.166.817.352 1.454.562 1.95.72.82.261 1.567.224 2.158.136.659-.098 2.02-.826 2.305-1.623.285-.796.285-1.48.199-1.623-.085-.144-.313-.228-.655-.399z" /></svg>
                                 </a>
                             </div>
                         </div>
@@ -773,13 +779,13 @@ const handleFormChange = (e) => {
                             <div className="flex flex-col gap-5">
                                 <a href="mailto:Fedfitbrand@gmail.com" className="flex items-center lg:flex-row-reverse gap-4 group">
                                     <div className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center group-hover:border-red-600 transition-colors">
-                                        <svg className="w-4 h-4 fill-white/40 group-hover:fill-red-600 transition-colors" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l12-9.725v15.438h-24v-15.438l12 9.725z"/></svg>
+                                        <svg className="w-4 h-4 fill-white/40 group-hover:fill-red-600 transition-colors" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l12-9.725v15.438h-24v-15.438l12 9.725z" /></svg>
                                     </div>
                                     <span className="text-white/40 group-hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">Fedfitbrand@gmail.com</span>
                                 </a>
                                 <div className="flex items-center lg:flex-row-reverse gap-4 group cursor-pointer">
                                     <div className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center group-hover:border-red-600 transition-colors">
-                                        <svg className="w-4 h-4 fill-white/40 group-hover:fill-red-600 transition-colors" viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.558-8.903.088-.041 1.977-.971 1.986-.975l-3.473-6.959s-2.023 1.026-2.123 1.078c-4.505 2.348 4.007 19.102 8.512 16.755.1-.052 5.241-2.252 5.241-2.252z"/></svg>
+                                        <svg className="w-4 h-4 fill-white/40 group-hover:fill-red-600 transition-colors" viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.558-8.903.088-.041 1.977-.971 1.986-.975l-3.473-6.959s-2.023 1.026-2.123 1.078c-4.505 2.348 4.007 19.102 8.512 16.755.1-.052 5.241-2.252 5.241-2.252z" /></svg>
                                     </div>
                                     <span className="text-white/40 group-hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">+91 90727 11358</span>
                                 </div>
@@ -807,24 +813,24 @@ const handleFormChange = (e) => {
             {/* ── Inquiry Modal ── */}
             <AnimatePresence>
                 {modalOpen && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-md bg-black/80 overflow-y-auto"
                     >
-                        <motion.div 
+                        <motion.div
                             initial={{ scale: 0.9, y: 20 }}
                             animate={{ scale: 1, y: 0 }}
                             exit={{ scale: 0.9, y: 20 }}
                             className="relative w-full max-w-lg bg-[#111] border border-white/10 rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(239,68,68,0.2)] p-6 sm:p-10 my-4 sm:my-8"
                         >
                             {/* Close Button */}
-                            <button 
+                            <button
                                 onClick={() => setModalOpen(false)}
                                 className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors"
                             >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
 
                             <div className="mb-6 sm:mb-8">
@@ -960,11 +966,10 @@ const handleFormChange = (e) => {
                                                 onChange={handleFormChange}
                                                 className="hidden"
                                             />
-                                            <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-md border flex items-center justify-center transition-all flex-shrink-0 ${
-                                                formData.hasInjuries
+                                            <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-md border flex items-center justify-center transition-all flex-shrink-0 ${formData.hasInjuries
                                                     ? 'bg-red-600 border-red-600'
                                                     : 'bg-white/5 border-white/10 group-hover:bg-white/10'
-                                            }`}>
+                                                }`}>
                                                 {formData.hasInjuries && (
                                                     <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -976,7 +981,7 @@ const handleFormChange = (e) => {
                                     </div>
                                 )}
 
-                                <motion.button 
+                                <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     className="w-full py-3 sm:py-4 mt-2 sm:mt-4 bg-red-600 hover:bg-red-500 text-white font-black uppercase tracking-[0.2em] text-xs sm:text-sm rounded-xl transition-all shadow-[0_0_30px_rgba(239,68,68,0.3)]"
